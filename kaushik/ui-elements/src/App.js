@@ -34,12 +34,23 @@ class Tab extends Component {
 	onClick = () => {
 		this.props.onClick(this.props.ele_id);
 	};
+
 	render() {
-		return (
-			<div style={{ padding: 20, background: 'grey' }} onClick={this.onClick}>
-				{this.props.title}
-			</div>
-		);
+		const style_selected = { backgroundColor: 'red', padding: 20 };
+		const style_not_selected = { backgroundColor: 'blue', padding: 20 };
+		if (this.props.idNumber === this.props.ele_id) {
+			return (
+				<div style={style_selected} onClick={this.onClick}>
+					{this.props.title}
+				</div>
+			);
+		} else {
+			return (
+				<div style={style_not_selected} onClick={this.onClick}>
+					{this.props.title}
+				</div>
+			);
+		}
 	}
 }
 
@@ -59,7 +70,13 @@ class UlContainer extends Component {
 		const tabs = [];
 		for (let i = 0; i < data.length; i++) {
 			tabs.push(
-				<Tab title={data[i].title} key={i} onClick={this.onClick} ele_id={i} />
+				<Tab
+					title={data[i].title}
+					key={i}
+					onClick={this.onClick}
+					ele_id={i}
+					idNumber={this.state.id}
+				/>
 			);
 		}
 
@@ -88,7 +105,7 @@ class App extends Component {
 				<p className="App-intro">
 					To get started, edit <code>src/App.js</code> and save to reload.
 				</p>
-				<UlContainer tab={2} data={data} />
+				<UlContainer data={data} />
 
 			</div>
 		);
