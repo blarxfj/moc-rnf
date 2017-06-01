@@ -1,44 +1,58 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-class tabs extends Component{
-  render(){
-    return (
-      <li><a>{this.props.title}</a></li>
-    );
-  }
+class TabContent extends Component {
+	render() {
+		return (
+			<div id={this.props.id}>
+				<p>This is a paragraph.</p>
+			</div>
+		);
+	}
 }
 
+class Tabs extends Component {
+	render() {
+		return (
+			<li>
+				<a href={this.props.link_}>{this.props.title}</a>
+			</li>
+		);
+	}
+}
 
-class ulContainer extends Component{
-
-  render(){
-    return (
-      <ul>
-        <tabs title='Tab'/>
-        <tabs title='Tab1'/>
-        <tabs title='Tab2'/>
-      </ul>
-    );
-  }
+class UlContainer extends Component {
+	render() {
+		return (
+			<div>
+				<ul>
+					<Tabs title="Tab1" link_="#tab1" />
+					<Tabs title="Tab2" link_="#tab2" />
+					<Tabs title="Tab3" link_="#tab3" />
+				</ul>
+				<TabContent />
+			</div>
+		);
+	}
 }
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <ulContainer />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App">
+				<div className="App-header">
+					<img src={logo} className="App-logo" alt="logo" />
+					<h2>Welcome to React</h2>
+				</div>
+				<p className="App-intro">
+					To get started, edit <code>src/App.js</code> and save to reload.
+				</p>
+				<UlContainer />
+
+			</div>
+		);
+	}
 }
 
 export default App;
