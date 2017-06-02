@@ -16,7 +16,13 @@ class TabContainer extends Component {
 
   render() {
     return (
-      <div style={{ display: 'block' }}>
+      <div
+        style={{
+          display: 'block',
+          position: 'absolute',
+          zIndex: '50'
+        }}
+      >
         <div style={{ display: 'flex' }}>
           <Tab
             id={1}

@@ -22,11 +22,19 @@ class App extends Component {
       <div style={{ margin: '10px' }}>
         <div
           style={{
-            display: 'flex'
+            display: 'flex',
+            position: 'relative'
           }}
         >
           <TabContainer />
-          <div style={{ display: 'block', position: 'relative' }}>
+          <div
+            style={{
+              display: 'block',
+              position: 'absolute',
+              zIndex: '100',
+              marginLeft: '120px'
+            }}
+          >
             <div onClick={this.dropDown}>
               DropDown▼
             </div>
