@@ -1,3 +1,3 @@
-###1/6/2017
--item Ubuntu installation completed
--item setup completed
+### 1/6/2017
+* Ubuntu installation completed
+* setup completed
