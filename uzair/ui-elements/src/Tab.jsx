@@ -4,14 +4,23 @@ class TabContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedId: 0
+      selectedId: 0,
+      activeId: 0
     };
   }
 
   onClick = id => {
-    this.setState({
-      selectedId: id
-    });
+    if (this.state.activeId !== id) {
+      this.setState({
+        selectedId: id,
+        activeId: id
+      });
+    } else {
+      this.setState({
+        selectedId: 0,
+        activeId: 0
+      });
+    }
   };
 
   render() {
