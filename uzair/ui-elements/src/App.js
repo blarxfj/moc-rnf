@@ -13,7 +13,7 @@ class App extends Component {
   dropDown = () => {
     const { visible } = this.state;
     this.setState({
-      visible: !visible
+      visible: visible ? false : true
     });
   };
   render() {
@@ -22,19 +22,19 @@ class App extends Component {
         <div
           style={{
             display: 'flex',
-            position: 'relative',
-            marginLeft: '10px'
+            position: 'relative'
           }}
         >
           <TabContainer />
           <div
             style={{
               display: 'block',
-              position: 'relative',
-              zIndex: '100'
+              position: 'absolute',
+              zIndex: '100',
+              marginLeft: '120px'
             }}
           >
-            <div onClick={this.dropDown} style={{ marginLeft: '120px' }}>
+            <div onClick={this.dropDown} style={{ borderRadius: '5px' }}>
               DropDown▼
             </div>
             <DropDownList visibility={this.state.visible} />
@@ -46,19 +46,20 @@ class App extends Component {
 }
 class DropDownList extends Component {
   render() {
-    const listStyle = {
-      width: '100px',
-      borderRadius: '3px',
-      border: '1px solid #000',
-      marginLeft: '120px',
-      position: 'absolute'
+    const itemStyle = {
+      backgroundColor: '#00FFFF',
+      width: '200px',
+      border: '1px solid #000'
     };
     if (this.props.visibility) {
       return (
-        <div style={listStyle}>
-          <div>New</div>
-          <div>Open</div>
-          <div>Save</div>
+        <div>
+          <div style={itemStyle}>
+            Wrap the dropdown's trigger and the dropdown menu within .dropdown, or another element that declares position: relative;. Then add the menu's HTML.May require additional positioning
+            Dropdowns are automatically positioned via CSS within the normal flow of the document. This means dropdowns may be cropped by parents with certain overflow properties or appear out of bounds of the viewport. Address these issues on your own as they arise.
+          </div>
+          <div style={itemStyle}>Open</div>
+          <div style={itemStyle}>Save</div>
         </div>
       );
     } else {

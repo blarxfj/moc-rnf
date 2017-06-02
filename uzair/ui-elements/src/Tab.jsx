@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 class TabContainer extends Component {
   constructor(props) {
@@ -32,18 +31,21 @@ class TabContainer extends Component {
       >
         <div style={{ display: 'flex' }}>
           <Tab
+            className="Tab-bar"
             id={1}
             onSelect={() => this.onClick(1)}
             tabName="Tab 1"
             selectedId={this.state.selectedId}
           />
           <Tab
+            className="Tab-bar"
             id={2}
             onSelect={() => this.onClick(2)}
             tabName="Tab 2"
             selectedId={this.state.selectedId}
           />
           <Tab
+            className="Tab-bar"
             id={3}
             onSelect={() => this.onClick(3)}
             tabName="Tab 3"
