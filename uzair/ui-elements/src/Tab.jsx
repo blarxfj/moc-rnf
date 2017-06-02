@@ -9,10 +9,6 @@ class TabContainer extends Component {
   }
 
   onClick = id => {
-    this.update(id);
-  };
-
-  update = id => {
     this.setState({
       selectedId: id
     });
