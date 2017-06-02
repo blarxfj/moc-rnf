@@ -9,3 +9,12 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 - Pushed into remote repository
 
 Conclusion - Done with setup and one ui component.
+
+
+# 02/06/2017
+
+- Made Dropdown elements
+- Moved each ui component to its own file
+- Read tutorials on z-index and stacking of html elements
+
+Conclusion - 2 working ui components
