@@ -4,21 +4,18 @@ class TabContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedId: 0,
-      activeId: 0
+      selectedId: 0
     };
   }
 
   onClick = id => {
-    if (this.state.activeId !== id) {
+    if (this.state.selectedId !== id) {
       this.setState({
-        selectedId: id,
-        activeId: id
+        selectedId: id
       });
     } else {
       this.setState({
-        selectedId: 0,
-        activeId: 0
+        selectedId: 0
       });
     }
   };
@@ -34,18 +31,21 @@ class TabContainer extends Component {
       >
         <div style={{ display: 'flex' }}>
           <Tab
+            className="Tab-bar"
             id={1}
             onSelect={() => this.onClick(1)}
             tabName="Tab 1"
             selectedId={this.state.selectedId}
           />
           <Tab
+            className="Tab-bar"
             id={2}
             onSelect={() => this.onClick(2)}
             tabName="Tab 2"
             selectedId={this.state.selectedId}
           />
           <Tab
+            className="Tab-bar"
             id={3}
             onSelect={() => this.onClick(3)}
             tabName="Tab 3"
