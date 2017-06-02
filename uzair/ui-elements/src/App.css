@@ -26,7 +26,3 @@
 .Tabs{
   display: flex;
 }
-
-.Tab-bar:hover{
-  background-color : #C0C0C0;
-}

@@ -35,7 +35,7 @@ class App extends Component {
               marginLeft: '120px'
             }}
           >
-            <div onClick={this.dropDown}>
+            <div onClick={this.dropDown} style={{ borderRadius: '5px' }}>
               DropDown▼
             </div>
             <DropDownList visibility={this.state.visible} />
@@ -47,15 +47,24 @@ class App extends Component {
 }
 class DropDownList extends Component {
   render() {
+    const itemStyle = {
+      borderBottom: '1px solid #000'
+    };
     if (this.props.visibility) {
       return (
-        <div>
-          <div>
+        <div
+          style={{
+            backgroundColor: '#00FFFF',
+            width: '200px',
+            border: '1px solid #000'
+          }}
+        >
+          <div style={itemStyle}>
             Wrap the dropdown's trigger and the dropdown menu within .dropdown, or another element that declares position: relative;. Then add the menu's HTML.May require additional positioning
             Dropdowns are automatically positioned via CSS within the normal flow of the document. This means dropdowns may be cropped by parents with certain overflow properties or appear out of bounds of the viewport. Address these issues on your own as they arise.
           </div>
-          <div>Open</div>
-          <div>Save</div>
+          <div style={itemStyle}>Open</div>
+          <div style={itemStyle}>Save</div>
         </div>
       );
     } else {
