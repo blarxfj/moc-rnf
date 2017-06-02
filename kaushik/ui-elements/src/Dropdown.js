@@ -1,5 +1,24 @@
 import React, { Component } from 'react';
 
+const dropdownElementNames = [
+  {
+    name: 'Dropdown',
+    link_: '#1'
+  },
+  {
+    name: 'Dropdown1',
+    link_: '#2'
+  },
+  {
+    name: 'Dropdown2',
+    link_: '#3'
+  },
+  {
+    name: 'Dropdown3',
+    link_: '#4'
+  }
+];
+
 class DropdownElement extends Component {
   render() {
     return (
@@ -27,6 +46,7 @@ class Dropdown extends Component {
 
   render() {
     var Elements = [];
+
     for (var i = 0; i < this.props.DropdownElementNames.length; i++) {
       Elements.push(
         <DropdownElement
@@ -36,29 +56,51 @@ class Dropdown extends Component {
         />
       );
     }
+    var style_not_visible = {
+      display: 'none',
+      position: 'absolute',
+      zIndex: 1,
+      backgroundColor: '#fff',
+      padding: 30
+    };
+    var style_visible = {
+      position: 'absolute',
+      zIndex: 1,
+      backgroundColor: '#fff',
+      padding: 15,
+      top: -90
+    };
 
     if (this.state.isClicked) {
-      var style_not_visible = { display: 'none' };
-      var style_visible = { display: 'block' };
       return (
-        <div>
+        <div style={{ position: 'relative' }}>
           <div style={style_not_visible}>
             {Elements}
           </div>
-          <h3 onClick={this.onClick}>Dropdown List </h3>
+          <h3 onClick={this.onClick}>
+            Dropdown List{' '}
+          </h3>
         </div>
       );
     } else {
       return (
-        <div>
+        <div style={{ position: 'relative' }}>
           <div style={style_visible}>
             {Elements}
           </div>
-          <h3 onClick={this.onClick}>Dropdown List</h3>
+          <h3 onClick={this.onClick}>
+            Dropdown List
+          </h3>
         </div>
       );
     }
   }
 }
 
-export default Dropdown;
+class ParentDropdown extends Component {
+  render() {
+    return <Dropdown DropdownElementNames={dropdownElementNames} />;
+  }
+}
+
+export default ParentDropdown;

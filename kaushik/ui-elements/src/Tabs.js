@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 
 //------------------------ UlContainer ----------------------------
 
+var ulContainerData = [
+  {
+    title: 'Tab1',
+    content: 'This is a paragraph 1',
+    id: 1
+  },
+  {
+    title: 'Tab2',
+    content: 'This is a paragraph 2',
+    id: 2
+  },
+  {
+    title: 'Tab3',
+    content: 'This is a paragraph 3',
+    id: 3
+  }
+];
+
 class TabContent extends Component {
   render() {
     return (
@@ -76,6 +94,15 @@ class UlContainer extends Component {
   }
 }
 
+class ParentUlContainer extends Component {
+  render() {
+    return (
+      <div>
+        <UlContainer data={ulContainerData} />
+      </div>
+    );
+  }
+}
 //------------------------ UlContainer ----------------------------
 
-export default UlContainer;
+export default ParentUlContainer;

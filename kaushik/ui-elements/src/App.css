@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .App-logo {
@@ -16,14 +16,6 @@
 
 .App-intro {
   font-size: large;
-}
-
-.selected {
-  background-color: grey;
-}
-
-.not-selected{
-  background-color: green;
 }
 
 @keyframes App-logo-spin {
