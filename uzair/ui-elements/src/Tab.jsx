@@ -7,13 +7,39 @@ class TabContainer extends Component {
       selectedId: 0
     };
   }
+
+  onClick = id => {
+    this.update(id);
+  };
+
+  update = id => {
+    this.setState({
+      selectedId: id
+    });
+  };
+
   render() {
     return (
       <div style={{ display: 'block' }}>
         <div style={{ display: 'flex' }}>
-          <Tab id={1} tabName="Tab 1" selectedId={this.state.selectedId} />
-          <Tab id={2} tabName="Tab 2" selectedId={this.state.selectedId} />
-          <Tab id={3} tabName="Tab 3" selectedId={this.state.selectedId} />
+          <Tab
+            id={1}
+            onSelect={() => this.onClick(1)}
+            tabName="Tab 1"
+            selectedId={this.state.selectedId}
+          />
+          <Tab
+            id={2}
+            onSelect={() => this.onClick(2)}
+            tabName="Tab 2"
+            selectedId={this.state.selectedId}
+          />
+          <Tab
+            id={3}
+            onSelect={() => this.onClick(3)}
+            tabName="Tab 3"
+            selectedId={this.state.selectedId}
+          />
         </div>
         <TabContent
           tabId={1}
@@ -36,23 +62,13 @@ class TabContainer extends Component {
 }
 
 class Tab extends Component {
-  onClick = () => {
-    this.update(this.props.id);
-  };
-
-  update = id => {
-    // this.setState({
-    //   selectedId: id
-    // });
-  };
-
   render() {
     const style = this.props.selectedId === this.props.id
       ? { background: 'red' }
       : {};
 
     return (
-      <div onClick={this.onClick} style={style}>
+      <div onClick={this.props.onSelect} style={style}>
         {this.props.tabName}
       </div>
     );

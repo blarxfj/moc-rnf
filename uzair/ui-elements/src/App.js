@@ -22,9 +22,7 @@ class App extends Component {
       <div style={{ margin: '10px' }}>
         <div
           style={{
-            display: 'flex',
-            position: 'relative',
-            zIndex: '1'
+            display: 'flex'
           }}
         >
           <TabContainer />
