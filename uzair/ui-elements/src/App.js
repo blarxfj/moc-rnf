@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import TabContainer from './Tab';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedId: 0,
       visible: false
     };
   }
-
-  update = id => {
-    this.setState({
-      selectedId: id
-    });
-  };
 
   dropDown = () => {
     const { visible } = this.state;
@@ -25,38 +19,22 @@ class App extends Component {
   render() {
     const selectedId = this.state.selectedId;
     return (
-      <div>
-        <div style={{ display: 'flex' }}>
-          <Tab
-            id={1}
-            selectedId={selectedId}
-            update={this.update}
-            tabName="Tab 1"
-          />
-          <Tab
-            id={2}
-            selectedId={selectedId}
-            update={this.update}
-            tabName="Tab 2"
-          />
-          <Tab
-            id={3}
-            selectedId={selectedId}
-            update={this.update}
-            tabName="Tab 3"
-          />
-          <div
-            className="dropdown"
-            style={{ display: 'block' }}
-            onClick={this.dropDown}
-          >
-            DropDown▼
+      <div style={{ margin: '10px' }}>
+        <div
+          style={{
+            display: 'flex',
+            position: 'relative',
+            zIndex: '1'
+          }}
+        >
+          <TabContainer />
+          <div style={{ display: 'block', position: 'relative' }}>
+            <div onClick={this.dropDown}>
+              DropDown▼
+            </div>
             <DropDownList visibility={this.state.visible} />
           </div>
         </div>
-        <TabContent selectedId={selectedId} tabId={1} message="Tab 1 Active" />
-        <TabContent selectedId={selectedId} tabId={2} message="Tab 2 Active" />
-        <TabContent selectedId={selectedId} tabId={3} message="Tab 3 Active" />
       </div>
     );
   }
@@ -66,7 +44,10 @@ class DropDownList extends Component {
     if (this.props.visibility) {
       return (
         <div>
-          <div>New</div>
+          <div>
+            Wrap the dropdown's trigger and the dropdown menu within .dropdown, or another element that declares position: relative;. Then add the menu's HTML.May require additional positioning
+            Dropdowns are automatically positioned via CSS within the normal flow of the document. This means dropdowns may be cropped by parents with certain overflow properties or appear out of bounds of the viewport. Address these issues on your own as they arise.
+          </div>
           <div>Open</div>
           <div>Save</div>
         </div>
@@ -74,33 +55,6 @@ class DropDownList extends Component {
     } else {
       return <div />;
     }
-  }
-}
-class TabContent extends Component {
-  render() {
-    if (this.props.tabId === this.props.selectedId)
-      return <div>{this.props.message}</div>;
-    else {
-      return <div />;
-    }
-  }
-}
-
-class Tab extends Component {
-  onClick = () => {
-    this.props.update(this.props.id);
-  };
-
-  render() {
-    const style = this.props.selectedId === this.props.id
-      ? { background: 'red' }
-      : {};
-
-    return (
-      <div onClick={this.onClick} style={style}>
-        {this.props.tabName}
-      </div>
-    );
   }
 }
 
