@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+//------------------------ UlContainer ----------------------------
+
 var data = [
 	{
 		title: 'Tab1',
@@ -94,6 +96,92 @@ class UlContainer extends Component {
 	}
 }
 
+//------------------------ UlContainer ----------------------------
+
+//------------------------ Dropdown ----------------------------
+
+var DropdownElementNames = [
+	{
+		name: 'Dropdown',
+		link_: '#1'
+	},
+	{
+		name: 'Dropdown1',
+		link_: '#2'
+	},
+	{
+		name: 'Dropdown2',
+		link_: '#3'
+	},
+	{
+		name: 'Dropdown3',
+		link_: '#4'
+	}
+];
+
+class DropdownElement extends Component {
+	render() {
+		return (
+			<div>
+				{this.props.name}
+			</div>
+		);
+	}
+}
+
+class Dropdown extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			isClicked: false
+		};
+	}
+
+	onClick = () => {
+		this.setState({
+			isClicked: !this.state.isClicked
+		});
+	};
+
+	render() {
+		var Elements = [];
+		for (var i = 0; i < this.props.DropdownElementNames.length; i++) {
+			Elements.push(
+				<DropdownElement
+					name={this.props.DropdownElementNames[i].name}
+					link={this.props.DropdownElementNames[i].link_}
+					key={i.toString()}
+				/>
+			);
+		}
+
+		if (this.state.isClicked) {
+			var style_not_visible = { visibility: 'hidden' };
+			var style_visible = { visibility: 'visible' };
+			return (
+				<div>
+					<h3 onClick={this.onClick}>Dropdown List </h3>
+					<div style={style_not_visible}>
+						{Elements}
+					</div>
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<h3 onClick={this.onClick}>Dropdown List</h3>
+					<div style={style_visible}>
+						{Elements}
+					</div>
+				</div>
+			);
+		}
+	}
+}
+
+//------------------------ Dropdown ----------------------------
+
 class App extends Component {
 	render() {
 		return (
@@ -105,11 +193,11 @@ class App extends Component {
 				<p className="App-intro">
 					To get started, edit <code>src/App.js</code> and save to reload.
 				</p>
-				<UlContainer data={data} />
-
+				<Dropdown DropdownElementNames={DropdownElementNames} />
 			</div>
 		);
 	}
 }
+// <UlContainer data={data} />
 
 export default App;
