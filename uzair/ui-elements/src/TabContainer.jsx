@@ -40,7 +40,7 @@ class TabContainer extends Component {
           height: '500'
         }}
       >
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', cursor: 'pointer' }}>
           <Tab
             id={1}
             name="Tab 1"

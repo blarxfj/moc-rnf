@@ -22,7 +22,8 @@ class DropdownContainer extends Component {
           position: 'absolute',
           zIndex: '2',
           left: '140px',
-          top: '20px'
+          top: '20px',
+          cursor: 'pointer'
         }}
       >
         <DropdownTrigger onSelect={() => this.onClick()} />
