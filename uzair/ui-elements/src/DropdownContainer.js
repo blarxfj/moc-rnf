@@ -71,7 +71,6 @@ class DropdownItems extends Component {
             border: '1px solid #e5e5e5',
             borderRadius: '2px',
             width: '170px',
-            fontSize: '15px',
             color: '#333',
             fontFamily: 'Arial'
           }}
