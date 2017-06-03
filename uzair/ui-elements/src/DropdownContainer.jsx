@@ -54,22 +54,25 @@ class DropdownTrigger extends Component {
 
 class DropdownItems extends Component {
   render() {
-    const itemContent = ['Action', 'Another Action', 'Something Else here'];
+    const itemContent = ['Action', 'Another action', 'Something else here'];
     const itemStyle = {
       marginLeft: '0px',
       marginTop: '6px',
       marginRight: '0px',
       marginBottom: '6px',
-      paddingLeft: '10px'
+      paddingLeft: '15px',
+      verticalAlign: 'middle',
+      paddingTop: '5px',
+      paddingBottom: '5px'
     };
     if (this.props.visible) {
       return (
         <div
           style={{
-            border: '1px solid #DCDCDC',
+            border: '1px solid #e5e5e5',
             borderRadius: '2px',
-            width: '140px',
-            fontSize: '13px',
+            width: '170px',
+            fontSize: '15px',
             color: '#333',
             fontFamily: 'Arial'
           }}
@@ -80,7 +83,7 @@ class DropdownItems extends Component {
             );
           })}
           <hr />
-          <div id="item-style" style={itemStyle}>Separated Link 1</div>
+          <div id="item-style" style={itemStyle}>Separated link</div>
         </div>
       );
     } else {
