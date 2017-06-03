@@ -14,11 +14,23 @@ class App extends Component {
 }
 
 class DropdownContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isClicked: false
+    };
+  }
+
+  onClick = () => {
+    this.setState({
+      isClicked: !this.state.isClicked
+    });
+  };
   render() {
     return (
       <div style={{ display: 'block' }}>
-        <DropdownTrigger />
-        <DropdownItems />
+        <DropdownTrigger onSelect={() => this.onClick()} />
+        <DropdownItems visible={this.state.isClicked} />
       </div>
     );
   }
@@ -26,19 +38,23 @@ class DropdownContainer extends Component {
 
 class DropdownTrigger extends Component {
   render() {
-    return <div>Dropdown Menu▼</div>;
+    return <div onClick={this.props.onSelect}>Dropdown Menu▼</div>;
   }
 }
 
 class DropdownItems extends Component {
   render() {
-    return (
-      <div>
-        <div>DropdownItems</div>
-        <div>DropdownItems</div>
-        <div>DropdownItems</div>
-      </div>
-    );
+    if (this.props.visible) {
+      return (
+        <div>
+          <div>DropdownItems</div>
+          <div>DropdownItems</div>
+          <div>DropdownItems</div>
+        </div>
+      );
+    } else {
+      return <div />;
+    }
   }
 }
 export default App;
