@@ -34,8 +34,7 @@ class TabContainer extends Component {
     return (
       <div
         style={{
-          position: 'absolute',
-          zIndex: '1'
+          position: 'absolute'
         }}
       >
         <div style={{ display: 'flex', cursor: 'pointer' }}>

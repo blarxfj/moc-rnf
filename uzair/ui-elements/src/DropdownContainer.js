@@ -19,7 +19,6 @@ class DropdownContainer extends Component {
         style={{
           display: 'block',
           position: 'absolute',
-          zIndex: '2',
           left: '180px',
           cursor: 'pointer',
           backgroundColor: '#fff'
