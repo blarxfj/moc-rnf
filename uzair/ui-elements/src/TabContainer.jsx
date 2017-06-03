@@ -35,7 +35,6 @@ class TabContainer extends Component {
           backgroundColor: 'green',
           position: 'absolute',
           zIndex: '1',
-          top: '20px',
           width: '500',
           height: '500'
         }}
