@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 class DropdownContainer extends Component {
   constructor(props) {
