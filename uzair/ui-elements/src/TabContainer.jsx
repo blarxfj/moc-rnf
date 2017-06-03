@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './App.css';
+
 class TabContainer extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +34,6 @@ class TabContainer extends Component {
     return (
       <div
         style={{
-          backgroundColor: 'green',
           position: 'absolute',
           zIndex: '1',
           width: '500',
@@ -68,7 +69,11 @@ class TabContainer extends Component {
 class Tab extends Component {
   render() {
     return (
-      <div style={{ marginRight: '4px' }} onClick={this.props.onSelect}>
+      <div
+        id="item-bar"
+        style={{ marginRight: '4px' }}
+        onClick={this.props.onSelect}
+      >
         {this.props.name}
       </div>
     );

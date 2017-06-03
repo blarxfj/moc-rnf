@@ -18,7 +18,6 @@ class DropdownContainer extends Component {
       <div
         style={{
           display: 'block',
-          backgroundColor: 'red',
           position: 'absolute',
           zIndex: '2',
           left: '140px',
@@ -34,7 +33,9 @@ class DropdownContainer extends Component {
 
 class DropdownTrigger extends Component {
   render() {
-    return <div onClick={this.props.onSelect}>Dropdown Menu▼</div>;
+    return (
+      <div onClick={this.props.onSelect} id="item-bar">Dropdown Menu▼</div>
+    );
   }
 }
 
@@ -43,9 +44,9 @@ class DropdownItems extends Component {
     if (this.props.visible) {
       return (
         <div>
-          <div>DropdownItems</div>
-          <div>DropdownItems</div>
-          <div>DropdownItems</div>
+          <div id="item-bar">DropdownItems</div>
+          <div id="item-bar">DropdownItems</div>
+          <div id="item-bar">DropdownItems</div>
         </div>
       );
     } else {
