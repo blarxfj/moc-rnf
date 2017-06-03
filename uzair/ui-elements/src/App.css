@@ -24,18 +24,18 @@
 }
 
 #item-bar {
-  border-radius: 3px;
-  background-color: #DCDCDC;
-  color: #A9A9A9;
-  padding: 4px;
-  font-size: 14px; 
+  border-radius: 4px;
+  color: #337ab7;
+  padding: 8px;
+  font-size: 16px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #item-bar:hover {
-  color: #000;
-  background-color: #A9A9A9;
+  background-color: #EEEEEE;
+  color: #144066;
 }
 
 #item-style:hover{
-  background-color: #DCDCDC;
+  background-color: #EEEEEE;
 }
