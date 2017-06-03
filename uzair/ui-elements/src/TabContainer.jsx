@@ -42,19 +42,16 @@ class TabContainer extends Component {
       >
         <div style={{ display: 'flex', cursor: 'pointer' }}>
           <Tab
-            id={1}
             name="Tab 1"
             selectedTab={this.state}
             onSelect={() => this.update(1, tabInfo)}
           />
           <Tab
-            id={2}
             name="Tab 2"
             selectedTab={this.state}
             onSelect={() => this.update(2, tabInfo)}
           />
           <Tab
-            id={3}
             name="Tab 3"
             selectedTab={this.state}
             onSelect={() => this.update(3, tabInfo)}
