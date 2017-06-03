@@ -15,7 +15,16 @@ class DropdownContainer extends Component {
   };
   render() {
     return (
-      <div style={{ display: 'block' }}>
+      <div
+        style={{
+          display: 'block',
+          backgroundColor: 'red',
+          position: 'absolute',
+          zIndex: '2',
+          left: '140px',
+          top: '20px'
+        }}
+      >
         <DropdownTrigger onSelect={() => this.onClick()} />
         <DropdownItems visible={this.state.isClicked} />
       </div>

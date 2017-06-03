@@ -24,9 +24,22 @@ class TabContainer extends Component {
   };
 
   render() {
-    const tabInfo = ['Tab 1 is Active', 'Tab 2 is Active', 'Tab 3 is Active'];
+    const tabInfo = [
+      'Tab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is Active',
+      'Tab 2 is Active',
+      'Tab 3 is Active'
+    ];
     return (
-      <div>
+      <div
+        style={{
+          backgroundColor: 'green',
+          position: 'absolute',
+          zIndex: '1',
+          top: '20px',
+          width: '500',
+          height: '500'
+        }}
+      >
         <div style={{ display: 'flex' }}>
           <Tab
             id={1}
