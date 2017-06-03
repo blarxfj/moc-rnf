@@ -27,6 +27,7 @@
   border-radius: 3px;
   background-color: #DCDCDC;
   color: #A9A9A9;
+  padding :4px;
 }
 
 #item-bar:hover {

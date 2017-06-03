@@ -20,7 +20,7 @@ class DropdownContainer extends Component {
           display: 'block',
           position: 'absolute',
           zIndex: '2',
-          left: '130px',
+          left: '155px',
           cursor: 'pointer'
         }}
       >
