@@ -13,6 +13,21 @@ class DropdownContainer extends Component {
       isClicked: !this.state.isClicked
     });
   };
+
+  onFocus = () => {
+    this.setState({
+      isClicked: true
+    });
+  };
+
+  onBlur = () => {
+    if (this.state.isClicked) {
+      this.setState({
+        isClicked: false
+      });
+    }
+  };
+
   render() {
     return (
       <div
@@ -23,6 +38,8 @@ class DropdownContainer extends Component {
           cursor: 'pointer',
           backgroundColor: '#fff'
         }}
+        onBlur={() => this.onBlur()}
+        onFocus={() => this.onFocus()}
       >
         <DropdownTrigger
           isClicked={this.state.isClicked}
@@ -61,8 +78,8 @@ class DropdownItems extends Component {
       marginBottom: '4px',
       paddingLeft: '15px',
       verticalAlign: 'middle',
-      paddingTop: '5px',
-      paddingBottom: '5px'
+      paddingTop: '4px',
+      paddingBottom: '4px'
     };
     if (this.props.visible) {
       return (
