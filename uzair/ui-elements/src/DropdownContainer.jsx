@@ -41,7 +41,7 @@ class DropdownTrigger extends Component {
 
 class DropdownItems extends Component {
   render() {
-    const itemContent = ['New', 'Open', 'Save', 'Exit'];
+    const itemContent = ['Action', 'Another Action', 'Something Else here'];
     const itemStyle = {
       marginLeft: '4px',
       marginTop: '4px',
@@ -55,7 +55,8 @@ class DropdownItems extends Component {
             backgroundColor: '#fff',
             border: '1px solid #000',
             borderRadius: '2px',
-            width: '140px'
+            width: '140px',
+            fontSize: '13px'
           }}
         >
           {itemContent.map((value, key) => {
@@ -63,6 +64,9 @@ class DropdownItems extends Component {
               <div key={key} id="item-style" style={itemStyle}>{value}</div>
             );
           })}
+          <hr />
+          <div id="item-style" style={itemStyle}>Separated Link 1</div>
+          <div id="item-style" style={itemStyle}>Separated Link 2</div>
         </div>
       );
     } else {
