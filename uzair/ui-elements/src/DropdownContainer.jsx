@@ -38,12 +38,13 @@ class DropdownContainer extends Component {
 class DropdownTrigger extends Component {
   render() {
     const triggerStyle = this.props.isClicked
-      ? { backgroundColor: '#EEEEEE', width: '87px', display: 'flex' }
+      ? { backgroundColor: '#EEEEEE', width: '86.5px', display: 'flex' }
       : {};
     return (
       <div>
         <div onClick={this.props.onSelect} style={triggerStyle} id="item-bar">
-          Dropdown&nbsp;<i className="fa fa-caret-down" />
+          Dropdown&nbsp;
+          <i className="fa fa-caret-down" />
         </div>
 
       </div>
