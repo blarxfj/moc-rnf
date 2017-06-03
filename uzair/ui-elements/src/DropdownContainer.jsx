@@ -41,6 +41,7 @@ class DropdownTrigger extends Component {
 
 class DropdownItems extends Component {
   render() {
+    const itemContent = ['New', 'Open', 'Save', 'Exit'];
     const itemStyle = {
       marginLeft: '4px',
       marginTop: '4px',
@@ -53,12 +54,15 @@ class DropdownItems extends Component {
           style={{
             backgroundColor: '#fff',
             border: '1px solid #000',
-            borderRadius: '2px'
+            borderRadius: '2px',
+            width: '140px'
           }}
         >
-          <div id="item-style" style={itemStyle}>DropdownItems</div>
-          <div id="item-style" style={itemStyle}>DropdownItems</div>
-          <div id="item-style" style={itemStyle}>DropdownItems</div>
+          {itemContent.map((value, key) => {
+            return (
+              <div key={key} id="item-style" style={itemStyle}>{value}</div>
+            );
+          })}
         </div>
       );
     } else {
