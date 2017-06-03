@@ -20,7 +20,7 @@ class DropdownContainer extends Component {
           display: 'block',
           position: 'absolute',
           zIndex: '2',
-          left: '155px',
+          left: '140px',
           cursor: 'pointer'
         }}
       >
@@ -55,7 +55,7 @@ class DropdownItems extends Component {
             backgroundColor: '#fff',
             border: '1px solid #000',
             borderRadius: '2px',
-            width: '140px',
+            width: '122px',
             fontSize: '13px'
           }}
         >
