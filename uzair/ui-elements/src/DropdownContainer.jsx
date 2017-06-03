@@ -20,7 +20,7 @@ class DropdownContainer extends Component {
           display: 'block',
           position: 'absolute',
           zIndex: '2',
-          left: '140px',
+          left: '130px',
           cursor: 'pointer'
         }}
       >
@@ -41,12 +41,24 @@ class DropdownTrigger extends Component {
 
 class DropdownItems extends Component {
   render() {
+    const itemStyle = {
+      marginLeft: '4px',
+      marginTop: '4px',
+      marginRight: '4px',
+      marginBottom: '4px'
+    };
     if (this.props.visible) {
       return (
-        <div>
-          <div id="item-bar">DropdownItems</div>
-          <div id="item-bar">DropdownItems</div>
-          <div id="item-bar">DropdownItems</div>
+        <div
+          style={{
+            backgroundColor: '#fff',
+            border: '1px solid #000',
+            borderRadius: '2px'
+          }}
+        >
+          <div id="item-style" style={itemStyle}>DropdownItems</div>
+          <div id="item-style" style={itemStyle}>DropdownItems</div>
+          <div id="item-style" style={itemStyle}>DropdownItems</div>
         </div>
       );
     } else {
