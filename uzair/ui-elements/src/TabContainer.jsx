@@ -27,9 +27,9 @@ class TabContainer extends Component {
 
   render() {
     const tabInfo = [
-      'Tab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is ActiveTab 1 is Active',
-      'Tab 2 is Active',
-      'Tab 3 is Active'
+      'Abraham Lincoln was an American politician and lawyer who served as the 16th President of the United States from March 1861 until his assassination in April 1865.',
+      'Franklin Delano Roosevelt, commonly known as FDR, was an American statesman and political leader who served as the 32nd President of the United States from 1933 until his death in 1945.',
+      'Barack Hussein Obama II is an American politician who served as the 44th President of the United States from 2009 to 2017. He is the first African American to have served as president.'
     ];
     return (
       <div
