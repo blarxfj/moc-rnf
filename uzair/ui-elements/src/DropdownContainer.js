@@ -8,26 +8,23 @@ class DropdownContainer extends Component {
     };
   }
 
+  handleBodyClick = () => {
+    this.setState({ isClicked: false });
+  };
+
   onClick = () => {
     this.setState({
       isClicked: !this.state.isClicked
     });
   };
 
-  onFocus = () => {
-    this.setState({
-      isClicked: true
-    });
-  };
+  componentDidMount() {
+    document.body.addEventListener('click', this.handleBodyClick);
+  }
 
-  onBlur = () => {
-    if (this.state.isClicked) {
-      this.setState({
-        isClicked: false
-      });
-    }
-  };
-
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.handleBodyClick);
+  }
   render() {
     return (
       <div
@@ -38,8 +35,7 @@ class DropdownContainer extends Component {
           cursor: 'pointer',
           backgroundColor: '#fff'
         }}
-        onBlur={() => this.onBlur()}
-        onFocus={() => this.onFocus()}
+        id="dropdown"
       >
         <DropdownTrigger
           isClicked={this.state.isClicked}
@@ -67,7 +63,6 @@ class DropdownTrigger extends Component {
     );
   }
 }
-
 class DropdownItems extends Component {
   render() {
     const itemContent = ['Action', 'Another action', 'Something else here'];
