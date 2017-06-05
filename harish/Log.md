@@ -10,3 +10,8 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 - Pushed into remote repository
 
 Conclusion - Done with setup!
+
+#05/06/2017
+
+- Gone through videos on ES6 in traversy media.
+- Classes, Let, Const, destructing, promises, arrow functions... are covered. 
