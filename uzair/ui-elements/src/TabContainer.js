@@ -37,7 +37,7 @@ class TabContainer extends Component {
           position: 'absolute'
         }}
       >
-        <div style={{ display: 'flex', cursor: 'pointer' }}>
+        <div style={{ display: 'flex' }}>
           <Tab
             name="Tab 1"
             selectedTab={this.state}
@@ -65,7 +65,7 @@ class Tab extends Component {
     return (
       <div
         id="item-bar"
-        style={{ marginRight: '4px' }}
+        style={{ marginRight: '4px', cursor: 'pointer' }}
         onClick={this.props.onSelect}
       >
         {this.props.name}
