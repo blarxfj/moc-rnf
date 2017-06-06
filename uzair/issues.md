@@ -5,7 +5,6 @@
 
 ## Tab UI:
 * Tab Container should be passed with properties like no of tabs and header text array
-* Cursor behaving as pointer in blank region when tab content is shown
 
 ## Dropdown UI:
 * The menu does not disappear when clicked outside of it's div element

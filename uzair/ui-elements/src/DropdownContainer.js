@@ -13,20 +13,27 @@ class DropdownContainer extends Component {
       isClicked: !this.state.isClicked
     });
   };
+
   handleBodyClick = () => {
     this.setState({ isClicked: false });
   };
 
-  componentDidUpdate() {
+  componentDidMount() {
     document
       .getElementById('root')
-      .addEventListener('click', this.handleBodyClick);
+      .parentElement.parentElement.addEventListener(
+        'click',
+        this.handleBodyClick
+      );
   }
 
-  componentWillUpdate() {
+  componentWillUnmount() {
     document
       .getElementById('root')
-      .removeEventListener('click', this.handleBodyClick);
+      .parentElement.parentElement.removeEventListener(
+        'click',
+        this.handleBodyClick
+      );
   }
 
   render() {
@@ -52,7 +59,7 @@ class DropdownContainer extends Component {
 
 class DropdownTrigger extends Component {
   render() {
-    const triggerStyle = this.props.isClicked
+    let triggerStyle = this.props.isClicked
       ? {
           backgroundColor: '#EEEEEE',
           width: '86.5px',
@@ -87,6 +94,7 @@ class DropdownItems extends Component {
     if (this.props.visible) {
       return (
         <div
+          id="menu"
           style={{
             border: '1px solid #e5e5e5',
             borderRadius: '2px',
