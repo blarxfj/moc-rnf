@@ -43,11 +43,7 @@ class Dropdown extends Component {
     this.setState({
       isClicked: !this.state.isClicked
     });
-    // e.target.focus();
     this.button_focus.focus();
-    // console.log(DOMEventTarget);
-    // console.log(document.activeElement);
-    // console.log(this.button_focus);
   };
 
   onBlur = e => {
@@ -55,9 +51,6 @@ class Dropdown extends Component {
     this.setState({
       isClicked: true
     });
-    this.button_focus.blur();
-    // console.log(document.activeElement);
-    // console.log(this.button_focus);
   };
 
   render() {
@@ -100,7 +93,7 @@ class Dropdown extends Component {
 
             {Elements}
           </div>
-          <a
+          <button
             href=""
             onClick={this.onClick}
             onBlur={this.onBlur}
@@ -109,7 +102,7 @@ class Dropdown extends Component {
             }}
           >
             Dropdown List{' '}
-          </a>
+          </button>
         </div>
       );
     } else {
@@ -119,7 +112,7 @@ class Dropdown extends Component {
             {Elements}
           </div>
 
-          <a
+          <button
             href=""
             onClick={this.onClick}
             onBlur={this.onBlur}
@@ -128,7 +121,7 @@ class Dropdown extends Component {
             }}
           >
             Dropdown List
-          </a>
+          </button>
         </div>
       );
     }
