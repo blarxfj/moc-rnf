@@ -14,6 +14,7 @@ class App extends Component {
           top: '20px',
           left: '20px'
         }}
+        id="app"
       >
         <TabContainer />
         <DropdownContainer />

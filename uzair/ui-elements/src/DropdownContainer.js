@@ -8,23 +8,27 @@ class DropdownContainer extends Component {
     };
   }
 
-  handleBodyClick = () => {
-    this.setState({ isClicked: false });
-  };
-
   onClick = () => {
     this.setState({
       isClicked: !this.state.isClicked
     });
   };
+  handleBodyClick = () => {
+    this.setState({ isClicked: false });
+  };
 
   componentDidMount() {
-    document.body.addEventListener('click', this.handleBodyClick);
+    document
+      .getElementById('app')
+      .addEventListener('click', this.handleBodyClick);
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('click', this.handleBodyClick);
+    document
+      .getElementById('app')
+      .removeEventListener('click', this.handleBodyClick);
   }
+
   render() {
     return (
       <div

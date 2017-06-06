@@ -13,3 +13,8 @@
 * Worked on fixing Dropdown Menu, making it look like Bootstrap dropdown
 * Watched video on best practices in React
 * Dropdown list disappear when clicked outside of div element pending
+
+### 5/June/17
+* Went through bootstrap dropwdown code
+* Watched the video Secrets of Virtual DOM by Pete Hunt
+* Skimmed through React Docs
