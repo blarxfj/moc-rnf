@@ -17,15 +17,15 @@ class DropdownContainer extends Component {
     this.setState({ isClicked: false });
   };
 
-  componentDidMount() {
+  componentDidUpdate() {
     document
-      .getElementById('app')
+      .getElementById('root')
       .addEventListener('click', this.handleBodyClick);
   }
 
-  componentWillUnmount() {
+  componentWillUpdate() {
     document
-      .getElementById('app')
+      .getElementById('root')
       .removeEventListener('click', this.handleBodyClick);
   }
 
