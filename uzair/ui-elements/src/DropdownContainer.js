@@ -64,7 +64,8 @@ class DropdownTrigger extends Component {
           backgroundColor: '#EEEEEE',
           width: '86.5px',
           cursor: 'pointer',
-          display: 'flex'
+          display: 'flex',
+          wordWrap: 'breakWord'
         }
       : { cursor: 'pointer' };
     return (
