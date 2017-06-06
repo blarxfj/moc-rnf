@@ -36,7 +36,6 @@ class DropdownContainer extends Component {
           display: 'block',
           position: 'absolute',
           left: '180px',
-          cursor: 'pointer',
           backgroundColor: '#fff'
         }}
         id="dropdown"
@@ -54,8 +53,13 @@ class DropdownContainer extends Component {
 class DropdownTrigger extends Component {
   render() {
     const triggerStyle = this.props.isClicked
-      ? { backgroundColor: '#EEEEEE', width: '86.5px', display: 'flex' }
-      : {};
+      ? {
+          backgroundColor: '#EEEEEE',
+          width: '86.5px',
+          cursor: 'pointer',
+          display: 'flex'
+        }
+      : { cursor: 'pointer' };
     return (
       <div>
         <div onClick={this.props.onSelect} style={triggerStyle} id="item-bar">
@@ -88,6 +92,7 @@ class DropdownItems extends Component {
             borderRadius: '2px',
             width: '170px',
             color: '#333',
+            cursor: 'pointer',
             fontFamily: 'Arial'
           }}
         >
