@@ -43,7 +43,7 @@ class Dropdown extends Component {
     this.setState({
       isClicked: !this.state.isClicked
     });
-    this.button_focus.focus();
+    this.button.focus();
   };
 
   onBlur = e => {
@@ -98,7 +98,7 @@ class Dropdown extends Component {
             onClick={this.onClick}
             onBlur={this.onBlur}
             ref={input => {
-              this.button_focus = input;
+              this.button = input;
             }}
           >
             Dropdown List{' '}
@@ -117,7 +117,7 @@ class Dropdown extends Component {
             onClick={this.onClick}
             onBlur={this.onBlur}
             ref={input => {
-              this.button_focus = input;
+              this.button = input;
             }}
           >
             Dropdown List
