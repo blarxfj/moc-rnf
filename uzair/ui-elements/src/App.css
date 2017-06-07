@@ -27,7 +27,7 @@ body{
   to { transform: rotate(360deg); }
 }
 
-#item-bar {
+#item-bar, #trigger {
   border-radius: 4px;
   color: #337ab7;
   padding: 8px;
@@ -39,7 +39,7 @@ body{
   user-select: none;
 }
 
-#item-bar:hover {
+#item-bar:hover , #trigger:hover {
   color: #185182;
   background-color: #EEEEEE;
 }

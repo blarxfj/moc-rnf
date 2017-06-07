@@ -4,18 +4,24 @@ class DropdownContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClicked: false
+      isClicked: false,
+      isExpanded: false
     };
   }
 
   onClick = () => {
     this.setState({
-      isClicked: !this.state.isClicked
+      isClicked: true,
+      isExpanded: !this.state.isExpanded
     });
   };
 
-  handleBodyClick = () => {
-    this.setState({ isClicked: false });
+  handleBodyClick = e => {
+    console.log('handleBodyClick', e.target.id);
+    if (e.target.id === 'trigger') {
+    } else {
+      this.setState({ isExpanded: false, isClicked: false });
+    }
   };
 
   componentDidMount() {
@@ -48,10 +54,14 @@ class DropdownContainer extends Component {
         id="dropdown"
       >
         <DropdownTrigger
+          isExpanded={this.state.isExpanded}
           isClicked={this.state.isClicked}
           onSelect={() => this.onClick()}
         />
-        <DropdownItems visible={this.state.isClicked} />
+        <DropdownItems
+          isExpanded={this.state.isExpanded}
+          visible={this.state.isClicked}
+        />
       </div>
     );
   }
@@ -59,7 +69,7 @@ class DropdownContainer extends Component {
 
 class DropdownTrigger extends Component {
   render() {
-    let triggerStyle = this.props.isClicked
+    let triggerStyle = this.props.isClicked && this.props.isExpanded
       ? {
           backgroundColor: '#EEEEEE',
           width: '86.5px',
@@ -70,7 +80,7 @@ class DropdownTrigger extends Component {
       : { cursor: 'pointer' };
     return (
       <div>
-        <div onClick={this.props.onSelect} style={triggerStyle} id="item-bar">
+        <div onClick={this.props.onSelect} style={triggerStyle} id="trigger">
           Dropdown&nbsp;
           <i className="fa fa-caret-down" />
         </div>
@@ -92,7 +102,7 @@ class DropdownItems extends Component {
       paddingTop: '4px',
       paddingBottom: '4px'
     };
-    if (this.props.visible) {
+    if (this.props.visible && this.props.isExpanded) {
       return (
         <div
           id="menu"
