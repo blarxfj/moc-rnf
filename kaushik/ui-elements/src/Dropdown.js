@@ -116,12 +116,12 @@ class Dropdown extends Component {
     };
 
     const buttonHoverStyle = {
-      backgroundColor: '#ccc',
+      backgroundColor: '#e6e6e6',
       padding: 10,
       borderRadius: 4,
       borderStyle: 'solid',
       borderWidth: 1,
-      borderColor: '#ccc',
+      borderColor: '#adadad',
       cursor: 'pointer'
     };
 
