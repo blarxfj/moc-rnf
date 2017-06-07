@@ -75,16 +75,19 @@ class DropdownTrigger extends Component {
           cursor: 'pointer',
           display: 'flex',
           wordWrap: 'breakWord',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          paddingTop: '10.5px'
         }
       : { cursor: 'pointer', justifyContent: 'center', width: '78px' };
+    let caretStyle = this.props.isClicked && this.props.isExpanded
+      ? {}
+      : { paddingTop: '12px' };
     return (
       <div>
         <div onClick={this.props.onSelect} style={triggerStyle} id="trigger">
           Dropdown&nbsp;
-          <i className="fa fa-caret-down" />
+          <i className="fa fa-caret-down" style={caretStyle} />
         </div>
-
       </div>
     );
   }
