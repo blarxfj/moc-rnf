@@ -18,3 +18,13 @@ Conclusion - Done with setup and one ui component.
 - Read tutorials on z-index and stacking of html elements
 
 Conclusion - 2 working ui components
+
+# 04/06/2017
+- Watched 2 videos on React and its best practices
+- Re-read the React's documentation on its essentials
+
+# 06/06/2017
+
+- Dropdown hides when clicked 
+- Dropdown has been changed to a button 
+- Naming error fixed 
