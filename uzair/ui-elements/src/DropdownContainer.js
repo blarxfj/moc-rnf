@@ -97,13 +97,14 @@ class DropdownItems extends Component {
         <div
           id="menu"
           style={{
-            border: '1px solid #e5e5e5',
-            borderRadius: '3px',
+            border: '1px solid rgba(0,0,0,.15)',
+            borderRadius: '4px',
             width: '170px',
             color: '#333',
             cursor: 'pointer',
             fontFamily: 'Arial',
-            marginTop: '2px'
+            marginTop: '3px',
+            boxShadow: '0 0px 2px #EEEEEE'
           }}
         >
           {itemContent.map((value, key) => {
