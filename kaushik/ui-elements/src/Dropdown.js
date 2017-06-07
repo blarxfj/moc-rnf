@@ -20,16 +20,13 @@ const dropdownElementNames = [
 ];
 
 class DropdownElement extends Component {
-  onMouseOverElement = () => {
-    console.log('I am dropdown element');
-    this.props.onMouseOverElement(this.props.key);
-    console.log(this.props.key);
+  onMouseOver = () => {
+    this.props.onMouseOver();
   };
 
-  // onMouseOut = () => {
-  //   console.log('I am dropdown element');
-  //   this.props.onMouseOut();
-  // };
+  onMouseOut = () => {
+    this.props.onMouseOut();
+  };
 
   render() {
     const styleDropdownElement = {
@@ -55,7 +52,11 @@ class DropdownElement extends Component {
       elementStyle = styleDropdownElement;
     }
     return (
-      <div style={elementStyle} onMouseOver={this.onMouseOverElement}>
+      <div
+        style={elementStyle}
+        onMouseOver={this.onMouseOver}
+        onMouseOut={this.onMouseOut}
+      >
         {this.props.name}
       </div>
     );
@@ -68,8 +69,7 @@ class Dropdown extends Component {
 
     this.state = {
       isClicked: true,
-      isHovering: false,
-      hoverElement: 0
+      isHovering: false
     };
   }
 
@@ -79,12 +79,6 @@ class Dropdown extends Component {
       isClicked: !this.state.isClicked
     });
     this.button.focus();
-  };
-
-  onMouseOverElement = key => {
-    this.setState({
-      hoverElement: key
-    });
   };
 
   onMouseOver = () => {
@@ -115,7 +109,8 @@ class Dropdown extends Component {
           name={this.props.DropdownElementNames[i].name}
           link={this.props.DropdownElementNames[i].link_}
           key={i.toString()}
-          onMouseOver={this.onMouseOverElement}
+          onMouseOver={this.onMouseOver}
+          onMouseOut={this.onMouseOut}
           isHovering={this.state.isHovering}
         />
       );
