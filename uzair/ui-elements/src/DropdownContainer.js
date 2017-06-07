@@ -71,12 +71,13 @@ class DropdownTrigger extends Component {
     let triggerStyle = this.props.isClicked && this.props.isExpanded
       ? {
           backgroundColor: '#EEEEEE',
-          width: '76px',
+          width: '78px',
           cursor: 'pointer',
           display: 'flex',
-          wordWrap: 'breakWord'
+          wordWrap: 'breakWord',
+          justifyContent: 'center'
         }
-      : { cursor: 'pointer' };
+      : { cursor: 'pointer', justifyContent: 'center', width: '78px' };
     return (
       <div>
         <div onClick={this.props.onSelect} style={triggerStyle} id="trigger">

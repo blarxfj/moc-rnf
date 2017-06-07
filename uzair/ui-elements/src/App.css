@@ -32,6 +32,7 @@ body{
   color: #337ab7;
   padding: 10px 15px;
   font-size: 14px;
+  justify-content: center;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -62,4 +63,20 @@ hr {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.fa-caret-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.fa-caret-down:before {
+    content: "";
 }
