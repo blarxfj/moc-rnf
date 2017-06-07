@@ -1,0 +1,21 @@
+<html>
+<body>
+<script>
+var myCar2={
+  maxspeed:70,
+  driver: "vinesh",
+  drive :function(speed,time){
+    console.log(speed*time);
+  },
+  logDriver : function(){
+    console.log("Driver name is " +this.driver);
+  }
+
+};
+myCar2.logDriver();
+console.log(myCar2.maxspeed);
+myCar2.drive(30,3);
+
+</script>
+</body>
+</html>
