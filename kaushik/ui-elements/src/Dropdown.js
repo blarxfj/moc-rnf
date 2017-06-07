@@ -54,9 +54,9 @@ class Dropdown extends Component {
   };
 
   render() {
-    var Elements = [];
+    const Elements = [];
 
-    var style_dropdown_element = {
+    const styleDropdownElement = {
       padding: 2
     };
 
@@ -66,61 +66,75 @@ class Dropdown extends Component {
           name={this.props.DropdownElementNames[i].name}
           link={this.props.DropdownElementNames[i].link_}
           key={i.toString()}
-          style={style_dropdown_element}
+          style={styleDropdownElement}
         />
       );
     }
-    var style_not_visible = {
+    const styleNotVisible = {
       display: 'none',
       position: 'absolute',
       zIndex: 1
     };
-    var style_visible = {
+    const styleVisible = {
       position: 'absolute',
       zIndex: 1,
       backgroundColor: '#fff',
-      padding: 10,
+      paddingTop: 5,
+      paddingBottom: 5,
       top: -100,
       borderStyle: 'solid',
-      borderWidth: 0.2,
-      borderColor: '#000'
+      borderRadius: 4,
+      borderWidth: 1,
+      borderColor: 'rgba(0,0,0,.15)',
+      boxShadow: '0 6px 12px rgba(0,0,0,.175)'
+    };
+
+    const buttonStyle = {
+      padding: 10,
+      backgroundColor: '#fff',
+      borderRadius: 4,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderColor: '#ccc'
     };
 
     if (this.state.isClicked) {
       return (
         <div style={{ position: 'relative' }}>
-          <div style={style_not_visible}>
+          <div style={styleNotVisible}>
 
             {Elements}
           </div>
           <button
-            href=""
             onClick={this.onClick}
             onBlur={this.onBlur}
             ref={input => {
               this.button = input;
             }}
+            style={buttonStyle}
           >
             Dropdown List{' '}
+            <i className={'fa fa-caret-up'} />
           </button>
         </div>
       );
     } else {
       return (
         <div style={{ position: 'relative' }}>
-          <div style={style_visible}>
+          <div style={styleVisible}>
             {Elements}
           </div>
 
           <button
-            href=""
             onClick={this.onClick}
             onBlur={this.onBlur}
             ref={input => {
               this.button = input;
             }}
+            style={buttonStyle}
           >
-            Dropdown List
+            Dropdown List{' '}
+            <i className={'fa fa-caret-up'} />
           </button>
         </div>
       );
