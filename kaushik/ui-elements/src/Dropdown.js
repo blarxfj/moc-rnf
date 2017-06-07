@@ -34,7 +34,8 @@ class Dropdown extends Component {
     super(props);
 
     this.state = {
-      isClicked: true
+      isClicked: true,
+      isHovering: false
     };
   }
 
@@ -44,6 +45,18 @@ class Dropdown extends Component {
       isClicked: !this.state.isClicked
     });
     this.button.focus();
+  };
+
+  onMouseOver = () => {
+    this.setState({
+      isHovering: true
+    });
+  };
+
+  onMouseOut = () => {
+    this.setState({
+      isHovering: false
+    });
   };
 
   onBlur = e => {
@@ -57,7 +70,9 @@ class Dropdown extends Component {
     const Elements = [];
 
     const styleDropdownElement = {
-      padding: '3px 20px'
+      padding: '3px 20px',
+      cursor: 'pointer',
+      textAlign: 'left'
     };
 
     for (var i = 0; i < this.props.DropdownElementNames.length; i++) {
@@ -90,15 +105,33 @@ class Dropdown extends Component {
       marginBottom: 2
     };
 
-    const buttonStyle = {
+    const buttonDefaultStyle = {
       padding: 10,
       backgroundColor: '#fff',
       borderRadius: 4,
       borderStyle: 'solid',
       borderWidth: 1,
-      borderColor: '#ccc'
+      borderColor: '#ccc',
+      cursor: 'pointer'
     };
 
+    const buttonHoverStyle = {
+      backgroundColor: '#ccc',
+      padding: 10,
+      borderRadius: 4,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderColor: '#ccc',
+      cursor: 'pointer'
+    };
+
+    let buttonStyle = {};
+
+    if (this.state.isHovering) {
+      buttonStyle = buttonHoverStyle;
+    } else {
+      buttonStyle = buttonDefaultStyle;
+    }
     if (this.state.isClicked) {
       return (
         <div style={{ position: 'relative' }}>
@@ -113,6 +146,8 @@ class Dropdown extends Component {
               this.button = input;
             }}
             style={buttonStyle}
+            onMouseOver={this.onMouseOver}
+            onMouseOut={this.onMouseOut}
           >
             Dropdown List{' '}
             <i className={'fa fa-caret-down'} />
@@ -133,6 +168,8 @@ class Dropdown extends Component {
               this.button = input;
             }}
             style={buttonStyle}
+            onMouseOver={this.onMouseOver}
+            onMouseOut={this.onMouseOut}
           >
             Dropdown List{' '}
             <i className={'fa fa-caret-down'} />
