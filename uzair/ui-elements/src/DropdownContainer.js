@@ -39,7 +39,7 @@ class DropdownContainer extends Component {
       backgroundColor: '#fff'
     };
     return (
-      <div style={dropdownContainerStyle}>
+      <div style={dropdownContainerStyle} id="dropdown">
         <DropdownTrigger
           isExpanded={this.state.isExpanded}
           isClicked={this.state.isClicked}
@@ -84,7 +84,7 @@ class DropdownItems extends Component {
   render() {
     const itemContent = ['Action', 'Another action', 'Something else here'];
     const itemStyle = {
-      margin: '0px 4px',
+      margin: '4px 0px',
       paddingLeft: '15px',
       verticalAlign: 'middle',
       paddingTop: '4px',
@@ -100,7 +100,6 @@ class DropdownItems extends Component {
       marginTop: '3px',
       boxShadow: '0 6px 12px rgba(0,0,0,.175)'
     };
-
     if (this.props.visible && this.props.isExpanded) {
       return (
         <div id="menu" style={divItemStyle}>
