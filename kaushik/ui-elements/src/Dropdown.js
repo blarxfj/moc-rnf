@@ -125,7 +125,7 @@ class Dropdown extends Component {
 
     let buttonStyle = {};
 
-    if (this.state.isHovering) {
+    if (this.state.isHovering || !this.state.isClicked) {
       buttonStyle = buttonHoverStyle;
     } else {
       buttonStyle = buttonDefaultStyle;
