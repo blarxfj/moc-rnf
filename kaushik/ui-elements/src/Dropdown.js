@@ -20,43 +20,9 @@ const dropdownElementNames = [
 ];
 
 class DropdownElement extends Component {
-  onMouseOver = () => {
-    this.props.onMouseOver();
-  };
-
-  onMouseOut = () => {
-    this.props.onMouseOut();
-  };
-
   render() {
-    const styleDropdownElement = {
-      padding: '3px 20px',
-      cursor: 'pointer',
-      textAlign: 'left',
-      whiteSpace: 'nowrap'
-    };
-
-    const hoverDropdownElement = {
-      padding: '3px 20px',
-      cursor: 'pointer',
-      textAlign: 'left',
-      whiteSpace: 'nowrap',
-      backgroundColor: '#ccc'
-    };
-
-    let elementStyle = {};
-
-    if (this.props.isHovering) {
-      elementStyle = hoverDropdownElement;
-    } else {
-      elementStyle = styleDropdownElement;
-    }
     return (
-      <div
-        style={elementStyle}
-        onMouseOver={this.onMouseOver}
-        onMouseOut={this.onMouseOut}
-      >
+      <div className={'dropdownElements'}>
         {this.props.name}
       </div>
     );
@@ -128,7 +94,7 @@ class Dropdown extends Component {
       paddingBottom: 5,
       top: 40,
       left: '45.5%',
-      display: 'block',
+      display: 'inline-block',
       borderStyle: 'solid',
       borderRadius: 4,
       borderWidth: 1,
