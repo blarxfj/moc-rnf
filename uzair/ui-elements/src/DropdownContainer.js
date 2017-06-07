@@ -18,8 +18,7 @@ class DropdownContainer extends Component {
 
   handleBodyClick = e => {
     console.log('handleBodyClick', e.target.id);
-    if (e.target.id === 'trigger') {
-    } else {
+    if (e.target.id !== 'trigger') {
       this.setState({ isExpanded: false, isClicked: false });
     }
   };
