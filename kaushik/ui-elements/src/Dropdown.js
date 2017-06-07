@@ -20,9 +20,42 @@ const dropdownElementNames = [
 ];
 
 class DropdownElement extends Component {
+  onMouseOverElement = () => {
+    console.log('I am dropdown element');
+    this.props.onMouseOverElement(this.props.key);
+    console.log(this.props.key);
+  };
+
+  // onMouseOut = () => {
+  //   console.log('I am dropdown element');
+  //   this.props.onMouseOut();
+  // };
+
   render() {
+    const styleDropdownElement = {
+      padding: '3px 20px',
+      cursor: 'pointer',
+      textAlign: 'left',
+      whiteSpace: 'nowrap'
+    };
+
+    const hoverDropdownElement = {
+      padding: '3px 20px',
+      cursor: 'pointer',
+      textAlign: 'left',
+      whiteSpace: 'nowrap',
+      backgroundColor: '#ccc'
+    };
+
+    let elementStyle = {};
+
+    if (this.props.isHovering) {
+      elementStyle = hoverDropdownElement;
+    } else {
+      elementStyle = styleDropdownElement;
+    }
     return (
-      <div style={this.props.style}>
+      <div style={elementStyle} onMouseOver={this.onMouseOverElement}>
         {this.props.name}
       </div>
     );
@@ -35,7 +68,8 @@ class Dropdown extends Component {
 
     this.state = {
       isClicked: true,
-      isHovering: false
+      isHovering: false,
+      hoverElement: 0
     };
   }
 
@@ -45,6 +79,12 @@ class Dropdown extends Component {
       isClicked: !this.state.isClicked
     });
     this.button.focus();
+  };
+
+  onMouseOverElement = key => {
+    this.setState({
+      hoverElement: key
+    });
   };
 
   onMouseOver = () => {
@@ -69,19 +109,14 @@ class Dropdown extends Component {
   render() {
     const Elements = [];
 
-    const styleDropdownElement = {
-      padding: '3px 20px',
-      cursor: 'pointer',
-      textAlign: 'left'
-    };
-
     for (var i = 0; i < this.props.DropdownElementNames.length; i++) {
       Elements.push(
         <DropdownElement
           name={this.props.DropdownElementNames[i].name}
           link={this.props.DropdownElementNames[i].link_}
           key={i.toString()}
-          style={styleDropdownElement}
+          onMouseOver={this.onMouseOverElement}
+          isHovering={this.state.isHovering}
         />
       );
     }
@@ -96,7 +131,9 @@ class Dropdown extends Component {
       backgroundColor: '#fff',
       paddingTop: 5,
       paddingBottom: 5,
-      top: 30,
+      top: 40,
+      left: '45.5%',
+      display: 'block',
       borderStyle: 'solid',
       borderRadius: 4,
       borderWidth: 1,
