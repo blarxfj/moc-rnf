@@ -57,7 +57,7 @@ class Dropdown extends Component {
     const Elements = [];
 
     const styleDropdownElement = {
-      padding: 2
+      padding: '3px 20px'
     };
 
     for (var i = 0; i < this.props.DropdownElementNames.length; i++) {
@@ -81,12 +81,13 @@ class Dropdown extends Component {
       backgroundColor: '#fff',
       paddingTop: 5,
       paddingBottom: 5,
-      top: -100,
+      top: 30,
       borderStyle: 'solid',
       borderRadius: 4,
       borderWidth: 1,
       borderColor: 'rgba(0,0,0,.15)',
-      boxShadow: '0 6px 12px rgba(0,0,0,.175)'
+      boxShadow: '0 6px 12px rgba(0,0,0,.175)',
+      marginBottom: 2
     };
 
     const buttonStyle = {
@@ -114,7 +115,7 @@ class Dropdown extends Component {
             style={buttonStyle}
           >
             Dropdown List{' '}
-            <i className={'fa fa-caret-up'} />
+            <i className={'fa fa-caret-down'} />
           </button>
         </div>
       );
@@ -134,7 +135,7 @@ class Dropdown extends Component {
             style={buttonStyle}
           >
             Dropdown List{' '}
-            <i className={'fa fa-caret-up'} />
+            <i className={'fa fa-caret-down'} />
           </button>
         </div>
       );
