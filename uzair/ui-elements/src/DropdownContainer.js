@@ -104,7 +104,7 @@ class DropdownItems extends Component {
             cursor: 'pointer',
             fontFamily: 'Arial',
             marginTop: '3px',
-            boxShadow: '0 0px 2px #EEEEEE'
+            boxShadow: '0 6px 12px rgba(0,0,0,.175)'
           }}
         >
           {itemContent.map((value, key) => {
