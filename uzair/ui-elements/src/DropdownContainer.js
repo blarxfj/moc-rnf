@@ -103,11 +103,9 @@ class DropdownItems extends Component {
     if (this.props.visible && this.props.isExpanded) {
       return (
         <div id="menu" style={divItemStyle}>
-          {itemContent.map((value, key) => {
-            return (
-              <div key={key} id="item-style" style={itemStyle}>{value}</div>
-            );
-          })}
+          {itemContent.map((value, key) => (
+            <div key={key} id="item-style" style={itemStyle}>{value}</div>
+          ))}
           <hr />
           <div id="item-style" style={itemStyle}>Separated link</div>
         </div>
