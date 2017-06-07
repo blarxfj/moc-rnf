@@ -98,7 +98,7 @@ class DropdownItems extends Component {
           id="menu"
           style={{
             border: '1px solid #e5e5e5',
-            borderRadius: '2px',
+            borderRadius: '3px',
             width: '170px',
             color: '#333',
             cursor: 'pointer',
