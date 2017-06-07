@@ -86,10 +86,7 @@ class DropdownItems extends Component {
   render() {
     const itemContent = ['Action', 'Another action', 'Something else here'];
     const itemStyle = {
-      marginLeft: '0px',
-      marginTop: '4px',
-      marginRight: '0px',
-      marginBottom: '4px',
+      margin: '0px 4px',
       paddingLeft: '15px',
       verticalAlign: 'middle',
       paddingTop: '4px',
