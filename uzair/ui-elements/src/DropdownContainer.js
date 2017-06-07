@@ -32,16 +32,14 @@ class DropdownContainer extends Component {
   }
 
   render() {
+    const dropdownContainerStyle = {
+      display: 'block',
+      position: 'absolute',
+      left: '202px',
+      backgroundColor: '#fff'
+    };
     return (
-      <div
-        style={{
-          display: 'block',
-          position: 'absolute',
-          left: '202px',
-          backgroundColor: '#fff'
-        }}
-        id="dropdown"
-      >
+      <div style={dropdownContainerStyle}>
         <DropdownTrigger
           isExpanded={this.state.isExpanded}
           isClicked={this.state.isClicked}
@@ -92,21 +90,20 @@ class DropdownItems extends Component {
       paddingTop: '4px',
       paddingBottom: '4px'
     };
+    const divItemStyle = {
+      border: '1px solid rgba(0,0,0,.15)',
+      borderRadius: '4px',
+      width: '170px',
+      color: '#333',
+      cursor: 'pointer',
+      fontFamily: 'Arial',
+      marginTop: '3px',
+      boxShadow: '0 6px 12px rgba(0,0,0,.175)'
+    };
+
     if (this.props.visible && this.props.isExpanded) {
       return (
-        <div
-          id="menu"
-          style={{
-            border: '1px solid rgba(0,0,0,.15)',
-            borderRadius: '4px',
-            width: '170px',
-            color: '#333',
-            cursor: 'pointer',
-            fontFamily: 'Arial',
-            marginTop: '3px',
-            boxShadow: '0 6px 12px rgba(0,0,0,.175)'
-          }}
-        >
+        <div id="menu" style={divItemStyle}>
           {itemContent.map((value, key) => {
             return (
               <div key={key} id="item-style" style={itemStyle}>{value}</div>
