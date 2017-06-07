@@ -47,7 +47,7 @@ class DropdownContainer extends Component {
         style={{
           display: 'block',
           position: 'absolute',
-          left: '180px',
+          left: '202px',
           backgroundColor: '#fff'
         }}
         id="dropdown"
@@ -71,7 +71,7 @@ class DropdownTrigger extends Component {
     let triggerStyle = this.props.isClicked && this.props.isExpanded
       ? {
           backgroundColor: '#EEEEEE',
-          width: '86.5px',
+          width: '76px',
           cursor: 'pointer',
           display: 'flex',
           wordWrap: 'breakWord'
