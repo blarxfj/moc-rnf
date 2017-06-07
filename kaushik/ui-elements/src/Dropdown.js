@@ -35,7 +35,6 @@ class Dropdown extends Component {
 
     this.state = {
       isClicked: false,
-      isHovering: false,
       isBodyClicked: true
     };
   }
@@ -49,53 +48,41 @@ class Dropdown extends Component {
     this.button.focus();
   };
 
-  onMouseOver = () => {
-    this.setState({
-      isHovering: true
-    });
-  };
-
-  onMouseOut = () => {
-    this.setState({
-      isHovering: false
-    });
-  };
-
-  // onBlur = e => {
-  //   e.preventDefault();
-  //   if (e.currentTarget === null) {
-  //     // do your thing.
-  //     // console.log(e.currentTarget + ' current target');
-  //     // console.log(e.relatedTarget + ' related target');
-  //     console.log(e);
-  //     this.setState({
-  //       isClicked: !this.state.isClicked
-  //     });
-  //   }
-  // };
-  dropdownButtonHandler = e => {
-    // console.log(e.target.id);
-    console.log(this.state.isClicked + ' is clicked');
-    console.log(this.state.isBodyClicked + ' is body clicked');
+  onBlur = e => {
+    console.log(e.target.id);
     if (e.target.id !== 'dropdownButton') {
       this.setState({
         isBodyClicked: true
       });
+    } else {
+      // console.log(e.target.id);
+      this.setState({
+        isBodyClicked: false
+      });
     }
-    // else {
-    //   this.setState({
-    //     isBodyClicked: false,
-    //     isClicked: !this.state.isClicked
-    //   });
-    // }
   };
-
-  componentDidMount() {
-    document.body.addEventListener('click', this.dropdownButtonHandler);
-  }
-  componentWillUnmount() {
-    document.body.removeEventListener('click', this.dropdownButtonHandler);
-  }
+  // dropdownButtonHandler = e => {
+  //   // console.log(e.target.id);
+  //   console.log(this.state.isClicked + ' is clicked');
+  //   console.log(this.state.isBodyClicked + ' is body clicked');
+  //   if (e.target.id !== 'dropdownButton') {
+  //     this.setState({
+  //       isBodyClicked: true
+  //     });
+  //   }
+  //   // else {
+  //   //   this.setState({
+  //   //     isClicked: true
+  //   //   });
+  //   // }
+  // };
+  //
+  // componentDidMount() {
+  //   document.body.addEventListener('click', this.dropdownButtonHandler);
+  // }
+  // componentWillUnmount() {
+  //   document.body.removeEventListener('click', this.dropdownButtonHandler);
+  // }
 
   render() {
     const Elements = [];
@@ -106,9 +93,6 @@ class Dropdown extends Component {
           name={this.props.DropdownElementNames[i].name}
           link={this.props.DropdownElementNames[i].link_}
           key={i.toString()}
-          onMouseOver={this.onMouseOver}
-          onMouseOut={this.onMouseOut}
-          isHovering={this.state.isHovering}
         />
       );
     }
@@ -134,33 +118,6 @@ class Dropdown extends Component {
       marginBottom: 2
     };
 
-    const buttonDefaultStyle = {
-      padding: 10,
-      backgroundColor: '#fff',
-      borderRadius: 4,
-      borderStyle: 'solid',
-      borderWidth: 1,
-      borderColor: '#ccc',
-      cursor: 'pointer'
-    };
-
-    const buttonHoverStyle = {
-      backgroundColor: '#e6e6e6',
-      padding: 10,
-      borderRadius: 4,
-      borderStyle: 'solid',
-      borderWidth: 1,
-      borderColor: '#adadad',
-      cursor: 'pointer'
-    };
-
-    let buttonStyle = {};
-
-    if (this.state.isHovering || !this.state.isClicked) {
-      buttonStyle = buttonHoverStyle;
-    } else {
-      buttonStyle = buttonDefaultStyle;
-    }
     if (this.state.isClicked && !this.state.isBodyClicked) {
       return (
         <div style={{ position: 'relative' }}>
@@ -174,9 +131,7 @@ class Dropdown extends Component {
             ref={input => {
               this.button = input;
             }}
-            style={buttonStyle}
-            onMouseOver={this.onMouseOver}
-            onMouseOut={this.onMouseOut}
+            className={'dropdownButton'}
             id="dropdownButton"
           >
             Dropdown{' '}
@@ -197,9 +152,7 @@ class Dropdown extends Component {
             ref={input => {
               this.button = input;
             }}
-            style={buttonStyle}
-            onMouseOver={this.onMouseOver}
-            onMouseOut={this.onMouseOut}
+            className={'dropdownButton'}
             id="dropdownButton"
           >
             Dropdown{' '}
