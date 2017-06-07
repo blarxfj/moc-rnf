@@ -102,7 +102,8 @@ class DropdownItems extends Component {
             width: '170px',
             color: '#333',
             cursor: 'pointer',
-            fontFamily: 'Arial'
+            fontFamily: 'Arial',
+            marginTop: '2px'
           }}
         >
           {itemContent.map((value, key) => {
