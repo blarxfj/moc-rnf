@@ -34,16 +34,18 @@ class Dropdown extends Component {
     super(props);
 
     this.state = {
-      isClicked: true,
-      isHovering: false
+      isClicked: false,
+      isHovering: false,
+      isBodyClicked: true
     };
   }
 
   onClick = e => {
-    e.preventDefault();
     this.setState({
-      isClicked: !this.state.isClicked
+      isClicked: !this.state.isClicked,
+      isBodyClicked: false
     });
+
     this.button.focus();
   };
 
@@ -59,12 +61,41 @@ class Dropdown extends Component {
     });
   };
 
-  onBlur = e => {
-    e.preventDefault();
-    this.setState({
-      isClicked: true
-    });
+  // onBlur = e => {
+  //   e.preventDefault();
+  //   if (e.currentTarget === null) {
+  //     // do your thing.
+  //     // console.log(e.currentTarget + ' current target');
+  //     // console.log(e.relatedTarget + ' related target');
+  //     console.log(e);
+  //     this.setState({
+  //       isClicked: !this.state.isClicked
+  //     });
+  //   }
+  // };
+  dropdownButtonHandler = e => {
+    // console.log(e.target.id);
+    console.log(this.state.isClicked + ' is clicked');
+    console.log(this.state.isBodyClicked + ' is body clicked');
+    if (e.target.id !== 'dropdownButton') {
+      this.setState({
+        isBodyClicked: true
+      });
+    }
+    // else {
+    //   this.setState({
+    //     isBodyClicked: false,
+    //     isClicked: !this.state.isClicked
+    //   });
+    // }
   };
+
+  componentDidMount() {
+    document.body.addEventListener('click', this.dropdownButtonHandler);
+  }
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.dropdownButtonHandler);
+  }
 
   render() {
     const Elements = [];
@@ -93,7 +124,7 @@ class Dropdown extends Component {
       paddingTop: 5,
       paddingBottom: 5,
       top: 40,
-      left: '45.5%',
+      left: '46.5%',
       display: 'inline-block',
       borderStyle: 'solid',
       borderRadius: 4,
@@ -130,29 +161,7 @@ class Dropdown extends Component {
     } else {
       buttonStyle = buttonDefaultStyle;
     }
-    if (this.state.isClicked) {
-      return (
-        <div style={{ position: 'relative' }}>
-          <div style={styleNotVisible}>
-
-            {Elements}
-          </div>
-          <button
-            onClick={this.onClick}
-            onBlur={this.onBlur}
-            ref={input => {
-              this.button = input;
-            }}
-            style={buttonStyle}
-            onMouseOver={this.onMouseOver}
-            onMouseOut={this.onMouseOut}
-          >
-            Dropdown List{' '}
-            <i className={'fa fa-caret-down'} />
-          </button>
-        </div>
-      );
-    } else {
+    if (this.state.isClicked && !this.state.isBodyClicked) {
       return (
         <div style={{ position: 'relative' }}>
           <div style={styleVisible}>
@@ -168,8 +177,32 @@ class Dropdown extends Component {
             style={buttonStyle}
             onMouseOver={this.onMouseOver}
             onMouseOut={this.onMouseOut}
+            id="dropdownButton"
           >
-            Dropdown List{' '}
+            Dropdown{' '}
+            <i className={'fa fa-caret-down'} />
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div style={{ position: 'relative' }}>
+          <div style={styleNotVisible}>
+
+            {Elements}
+          </div>
+          <button
+            onClick={this.onClick}
+            onBlur={this.onBlur}
+            ref={input => {
+              this.button = input;
+            }}
+            style={buttonStyle}
+            onMouseOver={this.onMouseOver}
+            onMouseOut={this.onMouseOut}
+            id="dropdownButton"
+          >
+            Dropdown{' '}
             <i className={'fa fa-caret-down'} />
           </button>
         </div>
