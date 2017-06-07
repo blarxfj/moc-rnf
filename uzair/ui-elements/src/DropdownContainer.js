@@ -24,21 +24,11 @@ class DropdownContainer extends Component {
   };
 
   componentDidMount() {
-    document
-      .getElementById('root')
-      .parentElement.parentElement.addEventListener(
-        'click',
-        this.handleBodyClick
-      );
+    document.addEventListener('click', this.handleBodyClick);
   }
 
   componentWillUnmount() {
-    document
-      .getElementById('root')
-      .parentElement.parentElement.removeEventListener(
-        'click',
-        this.handleBodyClick
-      );
+    document.removeEventListener('click', this.handleBodyClick);
   }
 
   render() {
