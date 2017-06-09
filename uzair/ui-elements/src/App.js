@@ -10,9 +10,7 @@ class App extends Component {
       <div
         style={{
           display: 'flex',
-          position: 'relative',
-          top: '20px',
-          left: '20px'
+          position: 'relative'
         }}
         id="app"
       >

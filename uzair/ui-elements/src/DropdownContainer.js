@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class DropdownContainer extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class DropdownContainer extends Component {
       isClicked: true,
       isExpanded: !this.state.isExpanded
     });
+    console.log('onClick');
   };
 
   handleBodyClick = e => {
@@ -35,8 +37,9 @@ class DropdownContainer extends Component {
     const dropdownContainerStyle = {
       display: 'block',
       position: 'absolute',
-      left: '202px',
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      left: '200px',
+      top: '10px'
     };
     return (
       <div style={dropdownContainerStyle} id="dropdown">
@@ -58,28 +61,25 @@ class DropdownTrigger extends Component {
   render() {
     let triggerStyle = this.props.isClicked && this.props.isExpanded
       ? {
-          backgroundColor: '#EEEEEE',
-          width: '78px',
-          cursor: 'pointer',
-          display: 'flex',
-          wordWrap: 'breakWord',
-          justifyContent: 'center',
-          paddingTop: '10.5px'
+          backgroundColor: '#EEEEEE'
         }
-      : { cursor: 'pointer', justifyContent: 'center', width: '78px' };
-    let caretStyle = this.props.isClicked && this.props.isExpanded
-      ? {}
-      : { paddingTop: '12px' };
+      : {};
     return (
       <div>
-        <div onClick={this.props.onSelect} style={triggerStyle} id="trigger">
-          Dropdown&nbsp;
-          <i className="fa fa-caret-down" style={caretStyle} />
+        <div
+          id="trigger"
+          onClick={this.props.onSelect}
+          style={triggerStyle}
+          className="trigger"
+        >
+          <div id="trigger">Dropdown </div>
+          <div className="fa fa-caret-down" style={{ marginTop: '6px' }} />
         </div>
       </div>
     );
   }
 }
+
 class DropdownItems extends Component {
   render() {
     const itemContent = ['Action', 'Another action', 'Something else here'];
@@ -101,9 +101,9 @@ class DropdownItems extends Component {
     if (this.props.visible && this.props.isExpanded) {
       return (
         <div id="menu" style={divItemStyle}>
-          {itemContent.map((value, key) => (
+          {itemContent.map((value, key) =>
             <div key={key} id="item-style" style={itemStyle}>{value}</div>
-          ))}
+          )}
           <hr />
           <div id="item-style" style={itemStyle}>Separated link</div>
         </div>

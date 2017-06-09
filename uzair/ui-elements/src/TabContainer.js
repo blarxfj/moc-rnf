@@ -63,11 +63,7 @@ class TabContainer extends Component {
 class Tab extends Component {
   render() {
     return (
-      <div
-        id="item-bar"
-        style={{ marginRight: '4px', cursor: 'pointer' }}
-        onClick={this.props.onSelect}
-      >
+      <div id="item-bar" onClick={this.props.onSelect}>
         {this.props.name}
       </div>
     );
