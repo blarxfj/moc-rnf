@@ -29,9 +29,15 @@ class PopoverContainer extends Component {
     return (
       <div style={{ margin: '50px', display: 'flex' }}>
         <button>Popover on Right</button>
-        <div>Building a popover on right in React</div>
+        <PopoverContent />
       </div>
     );
+  }
+}
+
+class PopoverContent extends Component {
+  render() {
+    return <div>Building a popover on right in React</div>;
   }
 }
 export default App;
