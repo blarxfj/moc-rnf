@@ -28,7 +28,7 @@ class PopoverContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isVisible: false
+      popInfo: false
     };
   }
   render() {
@@ -40,12 +40,22 @@ class PopoverContainer extends Component {
         }}
       >
         <button
-          onClick={() => this.setState({ isVisible: !this.state.isVisible })}
-          style={{ position: 'absolute', top: '70px' }}
+          onClick={() => this.setState({ popInfo: !this.state.popInfo })}
+          style={{ position: 'absolute', top: '70px', zIndex: '1' }}
         >
           Popover on Right
         </button>
-        <PopoverContent isVisible={this.state.isVisible} />
+        <PopoverContent popInfo={this.state.popInfo} />
+        <button
+          style={{
+            position: 'absolute',
+            top: '70px',
+            left: '200px',
+            zIndex: '2'
+          }}
+        >
+          Popover on Right
+        </button>
       </div>
     );
   }
@@ -53,18 +63,20 @@ class PopoverContainer extends Component {
 
 class PopoverContent extends Component {
   render() {
-    if (this.props.isVisible)
+    const infoStyle = {
+      position: 'absolute',
+      left: '125px',
+      height: '150px',
+      width: '200px',
+      border: '1px solid rgba(0, 0, 0, 0.2)',
+      padding: '10px 10px',
+      zIndex: '100',
+      background: '#fff',
+      borderRadius: '4px'
+    };
+    if (this.props.popInfo)
       return (
-        <div
-          style={{
-            position: 'absolute',
-            left: '125px',
-            height: '150px',
-            width: '200px',
-            border: '1px solid #000',
-            padding: '10px 10px'
-          }}
-        >
+        <div style={infoStyle}>
           Building a popover on right in React.Franklin Delano Roosevelt,
           commonly known as FDR, was an American statesman and political leader
           who served as the 32nd President of the United States from 1933 until
