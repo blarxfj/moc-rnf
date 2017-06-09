@@ -84,8 +84,8 @@ class DropdownItems extends Component {
   render() {
     const itemContent = ['Action', 'Another action', 'Something else here'];
     const itemStyle = {
-      margin: '4px 0px',
-      padding: '4px 0 4px 15px',
+      margin: '3px 0px',
+      padding: '6px 0 6px 15px',
       verticalAlign: 'middle'
     };
     const divItemStyle = {
@@ -104,7 +104,7 @@ class DropdownItems extends Component {
           {itemContent.map((value, key) =>
             <div key={key} id="item-style" style={itemStyle}>{value}</div>
           )}
-          <hr />
+          <hr style={{ margin: '6px 0px' }} />
           <div id="item-style" style={itemStyle}>Separated link</div>
         </div>
       );
