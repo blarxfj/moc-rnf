@@ -28,7 +28,7 @@ class PopoverContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      popInfo: false
+      popVisible: false
     };
   }
   render() {
@@ -40,22 +40,12 @@ class PopoverContainer extends Component {
         }}
       >
         <button
-          onClick={() => this.setState({ popInfo: !this.state.popInfo })}
+          onClick={() => this.setState({ popVisible: !this.state.popVisible })}
           style={{ position: 'absolute', top: '70px', zIndex: '1' }}
         >
           Popover on Right
         </button>
-        <PopoverContent popInfo={this.state.popInfo} />
-        <button
-          style={{
-            position: 'absolute',
-            top: '70px',
-            left: '200px',
-            zIndex: '2'
-          }}
-        >
-          Popover on Right
-        </button>
+        <PopoverContent popVisible={this.state.popVisible} />
       </div>
     );
   }
@@ -65,16 +55,16 @@ class PopoverContent extends Component {
   render() {
     const infoStyle = {
       position: 'absolute',
-      left: '125px',
       height: '150px',
       width: '200px',
+      left: '125px',
       border: '1px solid rgba(0, 0, 0, 0.2)',
       padding: '10px 10px',
       zIndex: '100',
       background: '#fff',
       borderRadius: '4px'
     };
-    if (this.props.popInfo)
+    if (this.props.popVisible)
       return (
         <div style={infoStyle}>
           Building a popover on right in React.Franklin Delano Roosevelt,
