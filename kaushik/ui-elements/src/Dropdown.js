@@ -44,45 +44,30 @@ class Dropdown extends Component {
       isClicked: !this.state.isClicked,
       isBodyClicked: false
     });
-
-    this.button.focus();
   };
 
-  onBlur = e => {
+  dropdownButtonHandler = e => {
     console.log(e.target.id);
+    console.log(this.state.isClicked + ' is clicked');
+    console.log(this.state.isBodyClicked + ' is body clicked');
     if (e.target.id !== 'dropdownButton') {
       this.setState({
-        isBodyClicked: true
+        isBodyClicked: true,
+        isClicked: false
       });
     } else {
-      // console.log(e.target.id);
       this.setState({
         isBodyClicked: false
       });
     }
   };
-  // dropdownButtonHandler = e => {
-  //   // console.log(e.target.id);
-  //   console.log(this.state.isClicked + ' is clicked');
-  //   console.log(this.state.isBodyClicked + ' is body clicked');
-  //   if (e.target.id !== 'dropdownButton') {
-  //     this.setState({
-  //       isBodyClicked: true
-  //     });
-  //   }
-  //   // else {
-  //   //   this.setState({
-  //   //     isClicked: true
-  //   //   });
-  //   // }
-  // };
-  //
-  // componentDidMount() {
-  //   document.body.addEventListener('click', this.dropdownButtonHandler);
-  // }
-  // componentWillUnmount() {
-  //   document.body.removeEventListener('click', this.dropdownButtonHandler);
-  // }
+
+  componentDidMount() {
+    document.body.addEventListener('click', this.dropdownButtonHandler);
+  }
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.dropdownButtonHandler);
+  }
 
   render() {
     const Elements = [];
@@ -127,7 +112,6 @@ class Dropdown extends Component {
 
           <button
             onClick={this.onClick}
-            onBlur={this.onBlur}
             ref={input => {
               this.button = input;
             }}
@@ -148,7 +132,6 @@ class Dropdown extends Component {
           </div>
           <button
             onClick={this.onClick}
-            onBlur={this.onBlur}
             ref={input => {
               this.button = input;
             }}
