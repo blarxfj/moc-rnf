@@ -25,11 +25,21 @@ class App extends Component {
 }
 
 class PopoverContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false
+    };
+  }
   render() {
     return (
       <div style={{ margin: '50px', display: 'flex' }}>
-        <button>Popover on Right</button>
-        <PopoverContent />
+        <button
+          onClick={() => this.setState({ isVisible: !this.state.isVisible })}
+        >
+          Popover on Right
+        </button>
+        <PopoverContent isVisible={this.state.isVisible} />
       </div>
     );
   }
@@ -37,7 +47,9 @@ class PopoverContainer extends Component {
 
 class PopoverContent extends Component {
   render() {
-    return <div>Building a popover on right in React</div>;
+    if (this.props.isVisible)
+      return <div>Building a popover on right in React</div>;
+    else return <div />;
   }
 }
 export default App;
