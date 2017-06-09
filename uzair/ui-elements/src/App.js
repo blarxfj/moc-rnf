@@ -17,6 +17,16 @@ class App extends Component {
       //   <TabContainer />
       //   <DropdownContainer />
       // </div>
+      <div>
+        <PopoverContainer />
+      </div>
+    );
+  }
+}
+
+class PopoverContainer extends Component {
+  render() {
+    return (
       <div style={{ margin: '50px', display: 'flex' }}>
         <button>Popover on Right</button>
         <div>Building a popover on right in React</div>
@@ -24,5 +34,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
