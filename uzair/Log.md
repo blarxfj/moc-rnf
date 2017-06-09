@@ -26,3 +26,6 @@
   - setState() does not always immediately update the component. It may batch or defer the update until later. This makes reading this.state right after calling setState() a potential pitfall. Instead, use componentDidUpdate or a setState callback (setState(updater, callback)), either of which are guaranteed to fire after the update has been applied.
   - Avoid making changes to DOM in event handlers and componentWill*** methods.
 * Dropdown re-click issue solved.
+
+## 7/June/17
+* CSS modifications on dropdown menu
