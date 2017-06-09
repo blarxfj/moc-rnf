@@ -32,16 +32,21 @@ class PopoverContainer extends Component {
     };
   }
   render() {
+    const popContainerStyle = {
+      margin: '50px',
+      position: 'relative'
+    };
+
+    const triggerStyle = {
+      position: 'absolute',
+      top: '70px',
+      zIndex: '1'
+    };
     return (
-      <div
-        style={{
-          margin: '50px',
-          position: 'relative'
-        }}
-      >
+      <div style={popContainerStyle}>
         <button
           onClick={() => this.setState({ popVisible: !this.state.popVisible })}
-          style={{ position: 'absolute', top: '70px', zIndex: '1' }}
+          style={triggerStyle}
         >
           Popover on Right
         </button>
