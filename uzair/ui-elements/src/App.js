@@ -33,9 +33,15 @@ class PopoverContainer extends Component {
   }
   render() {
     return (
-      <div style={{ margin: '50px', display: 'flex' }}>
+      <div
+        style={{
+          margin: '50px',
+          position: 'relative'
+        }}
+      >
         <button
           onClick={() => this.setState({ isVisible: !this.state.isVisible })}
+          style={{ position: 'absolute', top: '70px' }}
         >
           Popover on Right
         </button>
@@ -48,7 +54,23 @@ class PopoverContainer extends Component {
 class PopoverContent extends Component {
   render() {
     if (this.props.isVisible)
-      return <div>Building a popover on right in React</div>;
+      return (
+        <div
+          style={{
+            position: 'absolute',
+            left: '125px',
+            height: '150px',
+            width: '200px',
+            border: '1px solid #000',
+            padding: '10px 10px'
+          }}
+        >
+          Building a popover on right in React.Franklin Delano Roosevelt,
+          commonly known as FDR, was an American statesman and political leader
+          who served as the 32nd President of the United States from 1933 until
+          his death in 1945.
+        </div>
+      );
     else return <div />;
   }
 }
