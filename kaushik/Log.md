@@ -28,3 +28,19 @@ Conclusion - 2 working ui components
 - Dropdown hides when clicked 
 - Dropdown has been changed to a button 
 - Naming error fixed 
+
+# 07/06/2017
+
+- Dropdown has been styled
+- shadows work
+- Dropdown still broken
+
+# 08/06/2017
+- watched CSSCONF video 
+- dropdown still behaves weirdly
+- removed unwanted js code and made css classes for hover effects
+
+# 09/06/2017
+- The dropdown finally works
+- Dropdown has been styled
+- The logic behind the dropdown is still shaky
