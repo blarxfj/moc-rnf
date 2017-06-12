@@ -36,6 +36,16 @@ class PopoverContainer extends Component {
     };
   }
 
+  componentDidMount() {
+    let btnEle = document.getElementById('pop-btn');
+    console.log('coordinates: ', btnEle.getBoundingClientRect());
+    let position = btnEle.getBoundingClientRect();
+    this.setState({
+      positionTop: position.top,
+      positionLeft: position.left
+    });
+  }
+
   render() {
     console.log(this.state);
     const popContainerStyle = {
