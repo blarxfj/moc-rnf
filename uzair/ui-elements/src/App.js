@@ -30,16 +30,14 @@ class PopoverContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      popVisible: false
+      popVisible: false,
+      positionLeft: null,
+      positionTop: null
     };
   }
 
-  componentDidMount() {
-    let btnEle = document.getElementById('pop-btn');
-    console.log(btnEle.getBoundingClientRect());
-  }
-
   render() {
+    console.log(this.state);
     const popContainerStyle = {
       margin: '50px',
       position: 'relative'
@@ -56,7 +54,6 @@ class PopoverContainer extends Component {
 
     return (
       <div style={popContainerStyle}>
-        <PopoverContent content={content} popVisible={this.state.popVisible} />
         <button
           id="pop-btn"
           onClick={() => this.setState({ popVisible: !this.state.popVisible })}
@@ -64,6 +61,12 @@ class PopoverContainer extends Component {
         >
           Popover on Right
         </button>
+        <PopoverContent
+          positionLeft={this.state.positionLeft}
+          positionTop={this.state.positionTop}
+          content={content}
+          popVisible={this.state.popVisible}
+        />
 
       </div>
     );
@@ -71,16 +74,13 @@ class PopoverContainer extends Component {
 }
 
 class PopoverContent extends Component {
-  // componentDidUpdate() {
-  //   console.log(this.refs.content.getBoundingClientRect());
-  // }
-
   render() {
+    console.log('this.props', this.props);
     const infoStyle = {
       position: 'absolute',
       width: '200px',
-      top: '60px',
-      left: '125px',
+      top: this.props.positionTop - 110,
+      left: this.props.positionLeft + 75,
       border: '1px solid rgba(0, 0, 0, 0.2)',
       padding: '10px 10px',
       zIndex: '100',
