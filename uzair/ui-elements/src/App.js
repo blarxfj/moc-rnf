@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 
-// import TabContainer from './TabContainer';
-// import DropdownContainer from './DropdownContainer';
+import TabContainer from './TabContainer';
+import DropdownContainer from './DropdownContainer';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      // <div
-      //   style={{
-      //     display: 'flex',
-      //     position: 'relative'
-      //   }}
-      //   id="app"
-      // >
-      //   <TabContainer />
-      //   <DropdownContainer />
-      // </div>
       <div>
-        <PopoverContainer />
+        <div
+          style={{
+            display: 'flex',
+            position: 'relative'
+          }}
+          id="app"
+        >
+          <TabContainer />
+          <DropdownContainer />
+        </div>
+        <div>
+          <PopoverContainer />
+        </div>
       </div>
     );
   }
@@ -31,6 +33,12 @@ class PopoverContainer extends Component {
       popVisible: false
     };
   }
+
+  componentDidMount() {
+    let btnEle = document.getElementById('pop-btn');
+    console.log(btnEle.getBoundingClientRect());
+  }
+
   render() {
     const popContainerStyle = {
       margin: '50px',
@@ -39,29 +47,39 @@ class PopoverContainer extends Component {
 
     const triggerStyle = {
       position: 'absolute',
-      top: '70px',
+      top: '120px',
       zIndex: '1'
     };
+
+    const content =
+      'Building a popover on right in React.React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.';
+
     return (
       <div style={popContainerStyle}>
+        <PopoverContent content={content} popVisible={this.state.popVisible} />
         <button
+          id="pop-btn"
           onClick={() => this.setState({ popVisible: !this.state.popVisible })}
           style={triggerStyle}
         >
           Popover on Right
         </button>
-        <PopoverContent popVisible={this.state.popVisible} />
+
       </div>
     );
   }
 }
 
 class PopoverContent extends Component {
+  // componentDidUpdate() {
+  //   console.log(this.refs.content.getBoundingClientRect());
+  // }
+
   render() {
     const infoStyle = {
       position: 'absolute',
-      height: '150px',
       width: '200px',
+      top: '60px',
       left: '125px',
       border: '1px solid rgba(0, 0, 0, 0.2)',
       padding: '10px 10px',
@@ -71,11 +89,8 @@ class PopoverContent extends Component {
     };
     if (this.props.popVisible)
       return (
-        <div style={infoStyle}>
-          Building a popover on right in React.Franklin Delano Roosevelt,
-          commonly known as FDR, was an American statesman and political leader
-          who served as the 32nd President of the United States from 1933 until
-          his death in 1945.
+        <div ref="content" id="content-id" style={infoStyle}>
+          {this.props.content}
         </div>
       );
     else return <div />;
