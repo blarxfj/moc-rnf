@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 
 const dropdownElementNames = [
   {
-    name: 'Dropdown',
+    name: 'Action',
     link_: '#1'
   },
   {
-    name: 'Dropdown1',
+    name: 'Another Action',
     link_: '#2'
   },
   {
-    name: 'Dropdown2',
+    name: 'Something else here',
     link_: '#3'
-  },
-  {
-    name: 'Dropdown3',
-    link_: '#4'
   }
 ];
 
@@ -47,9 +43,6 @@ class Dropdown extends Component {
   };
 
   dropdownButtonHandler = e => {
-    console.log(e.target.id);
-    console.log(this.state.isClicked + ' is clicked');
-    console.log(this.state.isBodyClicked + ' is body clicked');
     if (e.target.id !== 'dropdownButton') {
       this.setState({
         isBodyClicked: true,
@@ -93,7 +86,7 @@ class Dropdown extends Component {
       paddingTop: 5,
       paddingBottom: 5,
       top: 40,
-      left: '46.5%',
+      left: '47%',
       display: 'inline-block',
       borderStyle: 'solid',
       borderRadius: 4,
