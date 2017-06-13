@@ -19,7 +19,7 @@ class App extends Component {
       //     <DropdownContainer />
       //   </div>
       <div>
-        <PopoverContainer />
+        <PopoverContainer direction="LEFT" />
       </div>
       // </div>
     );
@@ -56,7 +56,8 @@ class PopoverContainer extends Component {
     const triggerStyle = {
       position: 'absolute',
       top: '120px',
-      zIndex: '1'
+      zIndex: '1',
+      left: '200px'
     };
 
     const content =
@@ -72,6 +73,7 @@ class PopoverContainer extends Component {
           Popover on Right
         </button>
         <PopoverContent
+          direction={this.props.direction}
           positionLeft={this.state.positionLeft}
           positionTop={this.state.positionTop}
           content={content}
@@ -85,12 +87,30 @@ class PopoverContainer extends Component {
 
 class PopoverContent extends Component {
   render() {
+    let top = null;
+    let left = null;
+
+    switch (this.props.direction) {
+      case 'RIGHT':
+        top = this.props.positionTop - 110;
+        left = this.props.positionLeft + 75;
+        break;
+      case 'LEFT':
+        top = this.props.positionTop - 110;
+        left = this.props.positionLeft - 280;
+        break;
+      default:
+        break;
+    }
+
+    console.log('top', top, 'left', left);
     console.log('this.props', this.props);
+
     const infoStyle = {
       position: 'absolute',
       width: '200px',
-      top: this.props.positionTop - 110,
-      left: this.props.positionLeft + 75,
+      top: top,
+      left: left,
       border: '1px solid rgba(0, 0, 0, 0.2)',
       padding: '10px 10px',
       zIndex: '100',
