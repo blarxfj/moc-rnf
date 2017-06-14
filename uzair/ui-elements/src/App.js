@@ -21,12 +21,14 @@ class App extends Component {
       <div>
         <PopoverContainer
           id="1"
+          content="If only Bradley's arm was longer. Best photo ever. #oscars pic.twitter.com/C9U5NOtGap"
           buttonMarginTop={30}
           buttonMarginLeft={20}
           direction="RIGHT"
         />
         <PopoverContainer
           id="2"
+          content="To all the little girls watching...never doubt that you are valuable and powerful & deserving of every chance & opportunity in the world."
           buttonMarginTop={130}
           buttonMarginLeft={120}
           direction="RIGHT"
@@ -70,9 +72,6 @@ class PopoverContainer extends Component {
       marginLeft: this.props.buttonMarginLeft
     };
 
-    const content =
-      'Building a popover on right in React.React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.';
-
     return (
       <div style={popContainerStyle}>
         <button
@@ -90,7 +89,7 @@ class PopoverContainer extends Component {
           buttonWidth={this.state.buttonWidth}
           buttonHeight={this.state.buttonHeight}
           contentHeight={this.state.contentHeight}
-          content={content}
+          content={this.props.content}
           popVisible={this.state.popVisible}
         />
 
