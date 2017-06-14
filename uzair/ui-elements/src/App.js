@@ -20,8 +20,15 @@ class App extends Component {
       //   </div>
       <div>
         <PopoverContainer
-          buttonMarginTop={100}
-          buttonMarginLeft={210}
+          id="1"
+          buttonMarginTop={30}
+          buttonMarginLeft={20}
+          direction="RIGHT"
+        />
+        <PopoverContainer
+          id="2"
+          buttonMarginTop={130}
+          buttonMarginLeft={120}
           direction="RIGHT"
         />
         {/* <PopoverContainer buttonPosLeft={300} direction="LEFT" /> */}
@@ -36,25 +43,25 @@ class PopoverContainer extends Component {
     super(props);
     this.state = {
       popVisible: false,
-      width: null
+      buttonWidth: null,
+      buttonHeight: null
     };
   }
 
   componentDidMount() {
     let btnEle = document.getElementById('pop-btn');
     let position = btnEle.getBoundingClientRect();
-    console.log('position of button', position);
+
     this.setState({
-      width: position.width
+      buttonWidth: position.width,
+      buttonHeight: position.height
     });
   }
 
   render() {
-    console.log(this.state);
     const popContainerStyle = {
       margin: '50px',
-      position: 'relative',
-      border: '1px solid #000'
+      position: 'relative'
     };
 
     const triggerStyle = {
@@ -76,9 +83,13 @@ class PopoverContainer extends Component {
           Popover on {this.props.direction}
         </button>
         <PopoverContent
+          id={this.props.id}
           direction={this.props.direction}
           buttonMarginLeft={this.props.buttonMarginLeft}
-          width={this.state.width}
+          buttonMarginTop={this.props.buttonMarginTop}
+          buttonWidth={this.state.buttonWidth}
+          buttonHeight={this.state.buttonHeight}
+          contentHeight={this.state.contentHeight}
           content={content}
           popVisible={this.state.popVisible}
         />
@@ -89,25 +100,39 @@ class PopoverContainer extends Component {
 }
 
 class PopoverContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      contentHeight: 0
+    };
+  }
+  componentWillUpdate() {
+    let contentEle = document.getElementById(this.props.id);
+    let contentPos = contentEle.getBoundingClientRect();
+    if (this.props.popVisible) {
+      this.setState({
+        contentHeight: contentPos.height
+      });
+    }
+  }
   render() {
+    console.log('contentHeight', this.state.contentHeight);
     let top = null;
     let left = null;
-
     switch (this.props.direction) {
       case 'RIGHT':
-        top = 0;
-        left = this.props.width + this.props.buttonMarginLeft + 10;
+        top =
+          this.props.buttonMarginTop -
+          (this.state.contentHeight - this.props.buttonHeight) / 2;
+        left = this.props.buttonWidth + this.props.buttonMarginLeft + 10;
         break;
-      case 'LEFT':
-        top = this.props.positionTop - 110;
-        left = this.props.positionLeft - 10;
-        break;
+      // case 'LEFT':
+      //   top = this.props.positionTop - 110;
+      //   left = this.props.positionLeft - 10;
+      //   break;
       default:
         break;
     }
-
-    console.log('top', top, 'left', left);
-    console.log('this.props', this.props);
 
     const infoStyle = {
       position: 'absolute',
@@ -122,11 +147,11 @@ class PopoverContent extends Component {
     };
     if (this.props.popVisible)
       return (
-        <div ref="content" id="content-id" style={infoStyle}>
+        <div ref="content" id={this.props.id} style={infoStyle}>
           {this.props.content}
         </div>
       );
-    else return <div />;
+    else return <div id={this.props.id} />;
   }
 }
 export default App;
