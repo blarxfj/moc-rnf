@@ -19,7 +19,11 @@ class App extends Component {
       //     <DropdownContainer />
       //   </div>
       <div>
-        <PopoverContainer buttonPosLeft={0} direction="RIGHT" />
+        <PopoverContainer
+          buttonMarginTop={100}
+          buttonMarginLeft={210}
+          direction="RIGHT"
+        />
         {/* <PopoverContainer buttonPosLeft={300} direction="LEFT" /> */}
       </div>
       // </div>
@@ -32,8 +36,6 @@ class PopoverContainer extends Component {
     super(props);
     this.state = {
       popVisible: false,
-      positionLeft: null,
-      positionTop: null,
       width: null
     };
   }
@@ -43,8 +45,6 @@ class PopoverContainer extends Component {
     let position = btnEle.getBoundingClientRect();
     console.log('position of button', position);
     this.setState({
-      positionTop: position.top,
-      positionLeft: position.left,
       width: position.width
     });
   }
@@ -53,15 +53,14 @@ class PopoverContainer extends Component {
     console.log(this.state);
     const popContainerStyle = {
       margin: '50px',
-      position: 'relative'
+      position: 'relative',
+      border: '1px solid #000'
     };
 
     const triggerStyle = {
-      position: 'absolute',
-      top: '120px',
       zIndex: '1',
-      left: this.props.buttonPosLeft,
-      background: 'red'
+      marginTop: this.props.buttonMarginTop,
+      marginLeft: this.props.buttonMarginLeft
     };
 
     const content =
@@ -78,8 +77,7 @@ class PopoverContainer extends Component {
         </button>
         <PopoverContent
           direction={this.props.direction}
-          positionLeft={this.state.positionLeft}
-          positionTop={this.state.positionTop}
+          buttonMarginLeft={this.props.buttonMarginLeft}
           width={this.state.width}
           content={content}
           popVisible={this.state.popVisible}
@@ -97,8 +95,8 @@ class PopoverContent extends Component {
 
     switch (this.props.direction) {
       case 'RIGHT':
-        top = this.props.positionTop - 110;
-        left = this.props.width;
+        top = 0;
+        left = this.props.width + this.props.buttonMarginLeft + 10;
         break;
       case 'LEFT':
         top = this.props.positionTop - 110;
@@ -119,7 +117,7 @@ class PopoverContent extends Component {
       border: '1px solid rgba(0, 0, 0, 0.2)',
       padding: '10px 10px',
       zIndex: '100',
-      background: 'green',
+      background: '#fff',
       borderRadius: '4px'
     };
     if (this.props.popVisible)
