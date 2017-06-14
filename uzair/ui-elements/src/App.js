@@ -18,19 +18,19 @@ class App extends Component {
       //     <TabContainer />
       //     <DropdownContainer />
       //   </div>
-      <div>
+      <div style={{ display: 'flex' }}>
         <PopoverContainer
           id="1"
           content="If only Bradley's arm was longer. Best photo ever. #oscars pic.twitter.com/C9U5NOtGap"
-          buttonMarginTop={30}
+          buttonMarginTop={100}
           buttonMarginLeft={20}
           direction="RIGHT"
         />
         <PopoverContainer
           id="2"
           content="To all the little girls watching...never doubt that you are valuable and powerful & deserving of every chance & opportunity in the world."
-          buttonMarginTop={130}
-          buttonMarginLeft={120}
+          buttonMarginTop={50}
+          buttonMarginLeft={10}
           direction="RIGHT"
         />
         {/* <PopoverContainer buttonPosLeft={300} direction="LEFT" /> */}
@@ -62,7 +62,6 @@ class PopoverContainer extends Component {
 
   render() {
     const popContainerStyle = {
-      margin: '50px',
       position: 'relative'
     };
 
